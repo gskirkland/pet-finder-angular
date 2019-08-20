@@ -12,12 +12,6 @@ main {
   min-height: calc(100vh - 58px - 60px);
 }
 
-.navbar-dark {
-  .navbar-toggler {
-    border-color: $secondary-color;
-  }
-}
-
 #main-footer {
   padding-top: 1rem;
   padding-bottom: 1rem;

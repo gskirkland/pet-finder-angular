@@ -1,3 +1,4 @@
+@import "./src/styles.scss";
 nav {
   background: (#22804c);
 
@@ -10,5 +11,11 @@ nav {
     .nav-item {
       font-weight: bold;
     }
+  }
+}
+
+.navbar-dark {
+  .navbar-toggler {
+    border-color: $secondary-color;
   }
 }
