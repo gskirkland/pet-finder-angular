@@ -1,0 +1,126 @@
+<div class="container bg-secondary rounded-lg text-white mt-1">
+  <!-- Search Form -->
+  <form>
+    <!-- Row 1 -->
+    <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
+      <!-- Pet ID -->
+      <div class="form-group col-lg-3 col-md-6">
+        <label for="petId"><h3>Pet ID</h3></label>
+        <input
+          type="number"
+          class="form-control"
+          id="petId"
+          placeholder="e.g. 1234567"
+        />
+      </div>
+      <!-- Location Input -->
+      <div class="form-group col-lg-3 col-md-6">
+        <label for="location"><h3>Location</h3> </label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          placeholder="City, Zip, or Address"
+        />
+      </div>
+      <!-- Pet Type Input -->
+      <div class="form-group col-lg-3 col-md-6">
+        <label for="petType"><h3>Animal Type</h3></label>
+        <select id="petType" class="form-control">
+          <option selected>All Species</option>
+          <option>Cat</option>
+          <option>Dog</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <!-- Sort By Selection -->
+      <div class="form-group col-lg-3 col-md-6 order-lg-1">
+        <label for="sortBy"><h3>Sort By</h3></label>
+        <select id="sortBy" class="form-control">
+          <option selected>Most Recent</option>
+          <option>Distance</option>
+        </select>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="form-row d-flex justify-content-around">
+      <!-- Status Checkboxes -->
+      <div class="form-group col-lg-3 col-md-3" id="petStatus">
+        <h3>
+          <label for="petStatus" id="statusLabel">Pet Status</label>
+        </h3>
+        <!-- Status Checkbox 1 -->
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="lostCheck"
+          />
+          <label class="form-check-label" for="lostCheck">
+            Lost
+          </label>
+        </div>
+        <!-- Status Checkbox 2 -->
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="foundStrayCheck"
+          />
+          <label class="form-check-label" for="foundStrayCheck">
+            Found/Stray
+          </label>
+        </div>
+        <!-- Status Checkbox 3 -->
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="reunitedCheck"
+          />
+          <label class="form-check-label" for="reunitedCheck">
+            Reunited
+          </label>
+        </div>
+      </div>
+      <!-- Search Distance Radius Input -->
+      <div class="form-group col-lg-3 col-md-3 order-lg-2">
+        <label for="searchDistance"><h3>Distance</h3></label>
+        <input
+          type="range"
+          class="custom-range"
+          min="0"
+          max="100"
+          step="5"
+          id="searchDistance"
+        />
+      </div>
+      <!-- Found Within Date Range Selection  -->
+      <div class="form-group col-lg-3 col-md-6 pb-2 order-lg-4">
+        <label for="dateRange"><h4>Within Past</h4></label>
+        <select id="dateRange" class="form-control">
+          <option selected>1 Month</option>
+          <option>3 Months</option>
+          <option>6 Months</option>
+          <option>1 Year</option>
+        </select>
+      </div>
+      <div class="form-group col-lg-3 order-lg-3"></div>
+    </div>
+    <!-- Row 3 -->
+    <!-- Search Button -->
+    <div class="form-row d-flex justify-content-around">
+      <div class="col-md-6 order-sm-1"></div>
+      <div class="col-md-6 pb-2 order-sm-2">
+        <button class="btn btn-block btn-success" id="searchBtn" type="button">
+          <!-- Change type to submit after adding javascript to get form input values -->
+          Find
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>

@@ -1,0 +1,25 @@
+<div class="container bg-secondary rounded-lg mt-1 pt-1 pb-1">
+  <div class="card shadow-lg">
+    <div class="row">
+      <!--ToDo: Fix clickable hover area around resized images in search results-->
+      <div class="col-md-4">
+        <a href="#" title="Help find this pet">
+          <img class="img-fluid rounded" [src]="pet.imageUrl" alt="Pet image" />
+        </a>
+      </div>
+      <div class="card-body col-md-8 text-center text-md-left">
+        <h4 class="card-title">
+          {{ pet.petId }}
+        </h4>
+        <p>
+          {{ pet.petDescription }}
+        </p>
+        <p class="card-text">
+          <a href="#" title="Help find this pet" class="stretched-link"
+            >See pet</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+@import "../../../styles.scss";
+
+.card {
+  background: $secondary-color;
+  color: $primary-color;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-body {
+  padding: 0px 15px;
+}
+
+.row {
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  margin-bottom: 0;
+}
