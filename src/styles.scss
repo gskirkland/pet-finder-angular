@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+// Global styles
+$primary-color: #444;
+$secondary-color: #fff;
+
+body {
+  margin-top: 58px !important;
+  height: 100%;
+}
+
+/* Creating sticky footer: 100viewportHeight - navbarHeight - footerHeight */
+main {
+  min-height: calc(100vh - 58px - 60px);
+}
+
+.navbar-dark {
+  .navbar-toggler {
+    border-color: $secondary-color;
+  }
+}
+
+#main-footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 60px;
+  background: $secondary-color;
+  color: $primary-color;
+
+  .container {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
