@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { PetService } from "../../services/pet.service";
+
 import { Pet } from "src/app/models/Pet";
 
 @Component({
@@ -9,7 +11,7 @@ import { Pet } from "src/app/models/Pet";
 export class PetItemComponent implements OnInit {
   @Input() pet: Pet;
 
-  constructor() {}
+  constructor(private petService: PetService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
