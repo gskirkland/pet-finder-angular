@@ -1,7 +1,21 @@
 [
   {
-    "petId": 0,
+    "petId": 12345,
     "location": "Cleveland, TN",
+    "petName": "Bessie",
+    "petGender": "Female",
+    "petType": "Dog",
+    "lostCheck": true,
+    "foundStrayCheck": false,
+    "reunitedCheck": false,
+    "imageUrl": "https://i.imgur.com/4vUIq1G.jpg",
+    "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
+  },
+  {
+    "petId": 23456,
+    "location": "Cleveland, TN",
+    "petName": "Gidget",
+    "petGender": "Female",
     "petType": "Dog",
     "lostCheck": true,
     "foundStrayCheck": false,
@@ -10,8 +24,22 @@
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   },
   {
-    "petId": 1,
+    "petId": 34567,
     "location": "Cleveland, TN",
+    "petName": "Bessie",
+    "petGender": "Female",
+    "petType": "Dog",
+    "lostCheck": true,
+    "foundStrayCheck": false,
+    "reunitedCheck": false,
+    "imageUrl": "https://i.imgur.com/4vUIq1G.jpg",
+    "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
+  },
+  {
+    "petId": 45678,
+    "location": "Cleveland, TN",
+    "petName": "Gidget",
+    "petGender": "Female",
     "petType": "Dog",
     "lostCheck": true,
     "foundStrayCheck": false,
@@ -20,33 +48,15 @@
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   },
   {
-    "petId": 2,
+    "petId": 56789,
     "location": "Cleveland, TN",
+    "petName": "Bessie",
+    "petGender": "Female",
     "petType": "Dog",
     "lostCheck": true,
     "foundStrayCheck": false,
     "reunitedCheck": false,
-    "imageUrl": "https://i.imgur.com/N07faG2.jpg",
-    "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
-  },
-  {
-    "petId": 3,
-    "location": "Cleveland, TN",
-    "petType": "Dog",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
-    "imageUrl": "https://i.imgur.com/N07faG2.jpg",
-    "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
-  },
-  {
-    "petId": 4,
-    "location": "Cleveland, TN",
-    "petType": "Dog",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
-    "imageUrl": "https://i.imgur.com/N07faG2.jpg",
+    "imageUrl": "https://i.imgur.com/4vUIq1G.jpg",
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   }
 ]

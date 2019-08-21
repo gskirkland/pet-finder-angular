@@ -8,9 +8,11 @@
         </a>
       </div>
       <div class="card-body col-md-8 text-center text-md-left">
-        <h4 class="card-title">
-          {{ pet.petId }}
-        </h4>
+        <h3 class="card-title">{{ pet.petName }} <span class="small"> {{ pet.petGender }} {{ pet.petType }}</span></h3>
+        <h5>
+          <span class="badge badge-pill badge-danger">Lost</span>
+          PET ID: {{ pet.petId }}
+        </h5>
         <p>
           {{ pet.petDescription }}
         </p>

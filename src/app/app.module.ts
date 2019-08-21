@@ -8,6 +8,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PetSearchComponent } from './components/pet-search/pet-search.component';
 import { PetItemComponent } from './components/pet-item/pet-item.component';
+import { ReportPetComponent } from './components/report-pet/report-pet.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PetItemComponent } from './components/pet-item/pet-item.component';
     NavComponent,
     FooterComponent,
     PetSearchComponent,
-    PetItemComponent
+    PetItemComponent,
+    ReportPetComponent
   ],
   imports: [
     BrowserModule,
