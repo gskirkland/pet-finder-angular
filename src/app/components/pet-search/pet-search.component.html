@@ -6,96 +6,108 @@
       <!-- Pet ID -->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petId">
-          <h3>Pet ID</h3>
+          <h4>Pet ID</h4>
         </label>
         <input type="number" class="form-control" id="petId" placeholder="e.g. 1234567" />
-      </div>
-      <!-- Location Input -->
-      <div class="form-group col-lg-3 col-md-6">
-        <label for="location">
-          <h3>Location</h3>
-        </label>
-        <input type="text" class="form-control" id="location" placeholder="City, Zip, or Address" />
       </div>
       <!-- Pet Type Input -->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petType">
-          <h3>Animal Type</h3>
+          <h4>Animal Type</h4>
         </label>
-        <select id="petType" class="form-control">
+        <select class="custom-select" id="petType">
           <option selected>All Species</option>
-          <option>Cat</option>
-          <option>Dog</option>
-          <option>Other</option>
+          <option *ngFor="let petType of petTypes">{{ petType }}</option>
         </select>
       </div>
-      <!-- Sort By Selection -->
-      <div class="form-group col-lg-3 col-md-6 order-lg-1">
-        <label for="sortBy">
-          <h3>Sort By</h3>
+      <!-- Location Input -->
+      <div class="form-group col-lg-3 col-md-6">
+        <label for="location">
+          <h4>Location</h4>
         </label>
-        <select id="sortBy" class="form-control">
-          <option selected>Most Recent</option>
-          <option>Distance</option>
+        <input type="text" class="form-control" id="location" placeholder="City, Zip, or Address" />
+      </div>
+      <!-- Search Distance Radius Input -->
+      <div class="form-group col-lg-3 col-md-6 order-lg-1">
+        <label for="searchDistance">
+          <h4>Distance</h4>
+        </label>
+        <select class="custom-select" id="searchDistance">
+          <option selected>within 10 miles</option>
+          <option *ngFor="let searchDistance of searchDistances">within
+            {{ searchDistance }} miles</option>
         </select>
       </div>
     </div>
     <!-- Row 2 -->
     <div class="form-row d-flex justify-content-around">
       <!-- Status Checkboxes -->
-      <div class="form-group col-lg-3 col-md-3" id="petStatus">
-        <h3>
+      <div class="form-group col-md-3 col-6" id="petStatus">
+        <h4>
           <label for="petStatus" id="statusLabel">Pet Status</label>
-        </h3>
+        </h4>
         <!-- Status Checkbox 1 -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="lostCheck" />
+          <input class="form-check-input" type="checkbox" id="lostCheck" />
           <label class="form-check-label" for="lostCheck">
             Lost
           </label>
         </div>
         <!-- Status Checkbox 2 -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="foundStrayCheck" />
+          <input class="form-check-input" type="checkbox" id="foundStrayCheck" />
           <label class="form-check-label" for="foundStrayCheck">
             Found/Stray
           </label>
         </div>
         <!-- Status Checkbox 3 -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="reunitedCheck" />
+          <input class="form-check-input" type="checkbox" id="reunitedCheck" />
           <label class="form-check-label" for="reunitedCheck">
             Reunited
           </label>
         </div>
       </div>
-      <!-- Search Distance Radius Input -->
-      <div class="form-group col-lg-3 col-md-3 order-lg-2">
-        <label for="searchDistance">
-          <h3>Distance</h3>
-        </label>
-        <input type="range" class="custom-range" min="0" max="100" step="5" id="searchDistance" />
+      <!-- Gender Radio Buttons -->
+      <div class="form-group col-md-3 col-6">
+        <h4>
+          <label>Pet Gender</label>
+        </h4>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="petGender" value="male">
+          <label class="form-check-label">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="petGender" value="female">
+          <label class="form-check-label">Female</label>
+        </div>
       </div>
       <!-- Found Within Date Range Selection  -->
-      <div class="form-group col-lg-3 col-md-6 pb-2 order-lg-4">
+      <div class="form-group col-lg-3 col-md-3 pb-2">
         <label for="dateRange">
-          <h4>Within Past</h4>
+          <h4>Found Within</h4>
         </label>
-        <select id="dateRange" class="form-control">
-          <option selected>1 Month</option>
-          <option>3 Months</option>
-          <option>6 Months</option>
-          <option>1 Year</option>
+        <select class="custom-select" id="dateRange">
+          <option selected>Last Day</option>
+          <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
         </select>
       </div>
-      <div class="form-group col-lg-3 order-lg-3"></div>
+      <!-- Sort By Selection -->
+      <div class="form-group col-lg-3 col-md-3 pb-2">
+        <label for="sortBy">
+          <h4>Sort By</h4>
+        </label>
+        <select class="custom-select" id="sortBy">
+          <option *ngFor="let sortBy of sortBySelections" [value]="sortBy">{{ sortBy }}</option>
+        </select>
+      </div>
     </div>
     <!-- Row 3 -->
     <!-- Search Button -->
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
-        <button class="btn btn-block btn-secondary" id="searchBtn" type="button">
+        <button class="btn btn-block btn-secondary" id="searchBtn" type="submit">
           <!-- Change type to submit after adding javascript to get form input values -->
           Find
         </button>
