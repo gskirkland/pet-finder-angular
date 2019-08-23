@@ -1,6 +1,11 @@
 <div class="container rounded-lg text-white" id="formContainer">
   <!-- Search Form -->
-  <form #searchForm="ngForm">
+  <!--ToDo: Need to use Reactive Forms since each time a change is triggered on the data model,
+    the FormControl instance returns a new data model rather than updating the existing data model.
+    This allows the ability to track unique changes to the data model through the control's observable.
+    This provides one way for change detection to be more efficient because it only needs to update on 
+    unique changes. It also follows reactive patterns that integrate with observable operators to transform data.-->
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
     <!-- Row 1 -->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
       <!-- Pet ID -->
@@ -8,23 +13,18 @@
         <label for="petId">
           <h4>Pet ID</h4>
         </label>
-        <input
-          type="number"
-          class="form-control"
-          ngModel
-          name="petId"
-          id="petId"
-          placeholder="e.g. 1234567"
-        />
+        <input type="number" required #petId="ngModel" [class.is-invalid]="petId.invalid && petId.touched"
+          class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'blur'}"
+          id="petId" placeholder="e.g. 1234567" />
+        <small class="text-danger" [class.d-none]="petId.valid || petId.untouched">Must be a number</small>
       </div>
       <!-- Pet Type Input -->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petType">
           <h4>Animal Type</h4>
         </label>
-        <select class="custom-select" ngModel name="petType" id="petType">
-          <option selected>All Species</option>
-          <option *ngFor="let petType of petTypes">{{ petType }}</option>
+        <select class="custom-select" name="petType" [(ngModel)]="petSearch.petType" id="petType">
+          <option *ngFor="let petType of petTypes" [value]>{{ petType }}</option>
         </select>
       </div>
       <!-- Location Input -->
@@ -32,30 +32,16 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <input
-          type="text"
-          class="form-control"
-          ngModel
-          name="location"
-          id="location"
-          placeholder="City, Zip, or Address"
-        />
+        <input type="text" class="form-control" name="location" [(ngModel)]="petSearch.location"
+          [ngModelOptions]="{updateOn: 'blur'}" id="location" placeholder="City, Zip, or Address" />
       </div>
       <!-- Search Distance Radius Input -->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
         <label for="searchDistance">
           <h4>Distance</h4>
         </label>
-        <select
-          class="custom-select"
-          ngModel
-          name="searchDistance"
-          id="searchDistance"
-        >
-          <option selected>within 10 miles</option>
-          <option *ngFor="let searchDistance of searchDistances"
-            >within {{ searchDistance }} miles</option
-          >
+        <select class="custom-select" name="searchDistance" [(ngModel)]="petSearch.searchDistance" id="searchDistance">
+          <option *ngFor="let searchDistance of searchDistances" [value]>{{ searchDistance }}</option>
         </select>
       </div>
     </div>
@@ -68,39 +54,24 @@
         </h4>
         <!-- Status Checkbox 1 -->
         <div class="form-check">
-          <input
-            class="form-check-input"
-            ngModel
-            name="lostCheck"
-            type="checkbox"
-            id="lostCheck"
-          />
+          <input type="checkbox" class="form-check-input" name="lostCheck" [(ngModel)]="petSearch.lostCheck"
+            id="lostCheck" />
           <label class="form-check-label" for="lostCheck">
             Lost
           </label>
         </div>
         <!-- Status Checkbox 2 -->
         <div class="form-check">
-          <input
-            class="form-check-input"
-            ngModel
-            name="foundStrayCheck"
-            type="checkbox"
-            id="foundStrayCheck"
-          />
+          <input type="checkbox" class="form-check-input" name="foundStrayCheck" [(ngModel)]="petSearch.foundStrayCheck"
+            id="foundStrayCheck" />
           <label class="form-check-label" for="foundStrayCheck">
             Found/Stray
           </label>
         </div>
         <!-- Status Checkbox 3 -->
         <div class="form-check">
-          <input
-            class="form-check-input"
-            ngModel
-            name="reunitedCheck"
-            type="checkbox"
-            id="reunitedCheck"
-          />
+          <input type="checkbox" class="form-check-input" name="reunitedCheck" [(ngModel)]="petSearch.reunitedCheck"
+            id="reunitedCheck" />
           <label class="form-check-label" for="reunitedCheck">
             Reunited
           </label>
@@ -112,23 +83,13 @@
           <label>Pet Gender</label>
         </h4>
         <div class="form-check">
-          <input
-            class="form-check-input"
-            ngModel
-            name="petGender"
-            type="radio"
-            value="male"
-          />
+          <input type="radio" class="form-check-input" name="petGender" [(ngModel)]="petSearch.petGender"
+            value="male" />
           <label class="form-check-label">Male</label>
         </div>
         <div class="form-check">
-          <input
-            class="form-check-input"
-            ngModel
-            name="petGender"
-            type="radio"
-            value="female"
-          />
+          <input type="radio" class="form-check-input" name="petGender" [(ngModel)]="petSearch.petGender"
+            value="female" />
           <label class="form-check-label">Female</label>
         </div>
       </div>
@@ -137,9 +98,8 @@
         <label for="dateRange">
           <h4>Found Within</h4>
         </label>
-        <select class="custom-select" ngModel name="dateRange" id="dateRange">
-          <option selected>Last Day</option>
-          <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
+        <select class="custom-select" name="dateRange" [(ngModel)]="petSearch.dateRange" id="dateRange">
+          <option *ngFor="let dateRange of dateRanges" [value]>{{ dateRange }}</option>
         </select>
       </div>
       <!-- Sort By Selection -->
@@ -147,8 +107,8 @@
         <label for="sortBy">
           <h4>Sort By</h4>
         </label>
-        <select class="custom-select" ngModel name="sortBy" id="sortBy">
-          <option *ngFor="let sortBy of sortBySelections">{{ sortBy }}</option>
+        <select class="custom-select" name="sortBy" [(ngModel)]="petSearch.sortBy" id="sortBy">
+          <option *ngFor="let sortBy of sortBySelections" [value]>{{ sortBy }}</option>
         </select>
       </div>
     </div>
@@ -157,11 +117,7 @@
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
-        <button
-          class="btn btn-block btn-secondary"
-          id="searchBtn"
-          type="submit"
-        >
+        <button [disabled]=searchForm.form.invalid class="btn btn-block btn-secondary" type="submit" id="searchBtn">
           <!-- Change type to submit after adding javascript to get form input values -->
           Find
         </button>
@@ -170,6 +126,12 @@
   </form>
 </div>
 <!-- Display form values. Will be removed. -->
+<!--ToDo: Fix select form values, currently are not being retrieved.-->
+{{ searchForm.form.valid }}
+<hr />
 {{ searchForm.value | json }}
+<hr />
+{{ petSearch | json }}
+<hr />
 
 <app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>
