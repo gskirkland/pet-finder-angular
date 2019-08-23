@@ -1,6 +1,6 @@
 <div class="container rounded-lg text-white" id="formContainer">
   <!-- Search Form -->
-  <form>
+  <form #searchForm="ngForm">
     <!-- Row 1 -->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
       <!-- Pet ID -->
@@ -8,14 +8,21 @@
         <label for="petId">
           <h4>Pet ID</h4>
         </label>
-        <input type="number" class="form-control" id="petId" placeholder="e.g. 1234567" />
+        <input
+          type="number"
+          class="form-control"
+          ngModel
+          name="petId"
+          id="petId"
+          placeholder="e.g. 1234567"
+        />
       </div>
       <!-- Pet Type Input -->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petType">
           <h4>Animal Type</h4>
         </label>
-        <select class="custom-select" id="petType">
+        <select class="custom-select" ngModel name="petType" id="petType">
           <option selected>All Species</option>
           <option *ngFor="let petType of petTypes">{{ petType }}</option>
         </select>
@@ -25,17 +32,30 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <input type="text" class="form-control" id="location" placeholder="City, Zip, or Address" />
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="location"
+          id="location"
+          placeholder="City, Zip, or Address"
+        />
       </div>
       <!-- Search Distance Radius Input -->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
         <label for="searchDistance">
           <h4>Distance</h4>
         </label>
-        <select class="custom-select" id="searchDistance">
+        <select
+          class="custom-select"
+          ngModel
+          name="searchDistance"
+          id="searchDistance"
+        >
           <option selected>within 10 miles</option>
-          <option *ngFor="let searchDistance of searchDistances">within
-            {{ searchDistance }} miles</option>
+          <option *ngFor="let searchDistance of searchDistances"
+            >within {{ searchDistance }} miles</option
+          >
         </select>
       </div>
     </div>
@@ -48,21 +68,39 @@
         </h4>
         <!-- Status Checkbox 1 -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="lostCheck" />
+          <input
+            class="form-check-input"
+            ngModel
+            name="lostCheck"
+            type="checkbox"
+            id="lostCheck"
+          />
           <label class="form-check-label" for="lostCheck">
             Lost
           </label>
         </div>
         <!-- Status Checkbox 2 -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="foundStrayCheck" />
+          <input
+            class="form-check-input"
+            ngModel
+            name="foundStrayCheck"
+            type="checkbox"
+            id="foundStrayCheck"
+          />
           <label class="form-check-label" for="foundStrayCheck">
             Found/Stray
           </label>
         </div>
         <!-- Status Checkbox 3 -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="reunitedCheck" />
+          <input
+            class="form-check-input"
+            ngModel
+            name="reunitedCheck"
+            type="checkbox"
+            id="reunitedCheck"
+          />
           <label class="form-check-label" for="reunitedCheck">
             Reunited
           </label>
@@ -74,11 +112,23 @@
           <label>Pet Gender</label>
         </h4>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="petGender" value="male">
+          <input
+            class="form-check-input"
+            ngModel
+            name="petGender"
+            type="radio"
+            value="male"
+          />
           <label class="form-check-label">Male</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="petGender" value="female">
+          <input
+            class="form-check-input"
+            ngModel
+            name="petGender"
+            type="radio"
+            value="female"
+          />
           <label class="form-check-label">Female</label>
         </div>
       </div>
@@ -87,7 +137,7 @@
         <label for="dateRange">
           <h4>Found Within</h4>
         </label>
-        <select class="custom-select" id="dateRange">
+        <select class="custom-select" ngModel name="dateRange" id="dateRange">
           <option selected>Last Day</option>
           <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
         </select>
@@ -97,8 +147,8 @@
         <label for="sortBy">
           <h4>Sort By</h4>
         </label>
-        <select class="custom-select" id="sortBy">
-          <option *ngFor="let sortBy of sortBySelections" [value]="sortBy">{{ sortBy }}</option>
+        <select class="custom-select" ngModel name="sortBy" id="sortBy">
+          <option *ngFor="let sortBy of sortBySelections">{{ sortBy }}</option>
         </select>
       </div>
     </div>
@@ -107,7 +157,11 @@
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
-        <button class="btn btn-block btn-secondary" id="searchBtn" type="submit">
+        <button
+          class="btn btn-block btn-secondary"
+          id="searchBtn"
+          type="submit"
+        >
           <!-- Change type to submit after adding javascript to get form input values -->
           Find
         </button>
@@ -115,4 +169,7 @@
     </div>
   </form>
 </div>
+<!-- Display form values. Will be removed. -->
+{{ searchForm.value | json }}
+
 <app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>

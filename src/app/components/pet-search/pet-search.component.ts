@@ -12,16 +12,33 @@ export class PetSearchComponent implements OnInit {
   pets: Pet[];
 
   // petType select box array
-  petTypes = ['Cat', 'Dog', 'Other'];
+  petTypes = [
+    'Cat',
+    'Dog',
+    'Other'
+  ]; // Fixed default selected value to appear when page is loaded
 
   // searchDistance select box array
-  searchDistances = ['25', '50', '100'];
+  searchDistances = [
+    '25',
+    '50',
+    '100'
+  ]; // Fixed default selected value to appear when page is loaded
 
   // dateRange select box array
-  dateRanges = ['Last 3 Days', 'Last Week', 'Last 2 Weeks', 'Last Month', 'Any Time'];
+  dateRanges = [
+    'Last 3 Days',
+    'Last Week',
+    'Last 2 Weeks',
+    'Last Month',
+    'Any Time'
+  ]; // Fixed default selected value to appear when page is loaded
 
   // sortBy select box array
-  sortBySelections = ['Most Recent', 'Distance'];
+  sortBySelections = [
+    'Most Recent',
+    'Distance'
+  ]; // Fixed default selected value to appear when page is loaded
 
   constructor(private petService: PetService) { }
 
