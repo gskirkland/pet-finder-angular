@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 import { Pet } from '../models/Pet';
 
@@ -20,6 +22,11 @@ export class PetService {
   }
 
   getPetSearch(pet: Pet) {
-    return this.http.post<any>(this.url, pet);
+    return this.http.post<any>(this.url, pet)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  errorHandler(error: HttpErrorResponse) {
+    return throwError(error);
   }
 }

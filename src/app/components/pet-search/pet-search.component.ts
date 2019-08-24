@@ -11,6 +11,7 @@ import { Pet } from '../../models/Pet';
 export class PetSearchComponent implements OnInit {
   pets: Pet[];
   submitted = false;
+  errorMsg = '';
 
   // petType select box array
   petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
@@ -52,7 +53,7 @@ export class PetSearchComponent implements OnInit {
     this.petService.getPetSearch(this.petSearch)
       .subscribe(
         data => console.log('Success!', data),
-        error => console.log('Error!', error)
+        error => this.errorMsg = error.statusText
       );
   }
 
