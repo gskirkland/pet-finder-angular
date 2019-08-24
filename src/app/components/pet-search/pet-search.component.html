@@ -1,24 +1,24 @@
+<!--Search Form-->
 <div class="container rounded-lg text-white" id="formContainer">
-  <!-- Search Form -->
   <!--ToDo: Need to use Reactive Forms since each time a change is triggered on the data model,
     the FormControl instance returns a new data model rather than updating the existing data model.
     This allows the ability to track unique changes to the data model through the control's observable.
     This provides one way for change detection to be more efficient because it only needs to update on 
     unique changes. It also follows reactive patterns that integrate with observable operators to transform data.-->
   <form #searchForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    <!-- Row 1 -->
+    <!--Row 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
-      <!-- Pet ID -->
+      <!--Pet ID-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petId">
           <h4>Pet ID</h4>
         </label>
         <input type="number" required #petId="ngModel" [class.is-invalid]="petId.invalid && petId.touched"
-          class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'blur'}"
+          class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'change'}"
           id="petId" placeholder="e.g. 1234567" />
         <small class="text-danger" [class.d-none]="petId.valid || petId.untouched">Must be a number</small>
       </div>
-      <!-- Pet Type Input -->
+      <!--Pet Type Input-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petType">
           <h4>Animal Type</h4>
@@ -27,7 +27,7 @@
           <option *ngFor="let petType of petTypes" [value]>{{ petType }}</option>
         </select>
       </div>
-      <!-- Location Input -->
+      <!--Location Input-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="location">
           <h4>Location</h4>
@@ -35,7 +35,7 @@
         <input type="text" class="form-control" name="location" [(ngModel)]="petSearch.location"
           [ngModelOptions]="{updateOn: 'blur'}" id="location" placeholder="City, Zip, or Address" />
       </div>
-      <!-- Search Distance Radius Input -->
+      <!--Search Distance Radius Input-->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
         <label for="searchDistance">
           <h4>Distance</h4>
@@ -45,14 +45,14 @@
         </select>
       </div>
     </div>
-    <!-- Row 2 -->
+    <!--Row 2-->
     <div class="form-row d-flex justify-content-around">
-      <!-- Status Checkboxes -->
+      <!--Status Checkboxes-->
       <div class="form-group col-md-3 col-6" id="petStatus">
         <h4>
           <label for="petStatus" id="statusLabel">Pet Status</label>
         </h4>
-        <!-- Status Checkbox 1 -->
+        <!--Status Checkbox 1-->
         <div class="form-check">
           <input type="checkbox" class="form-check-input" name="lostCheck" [(ngModel)]="petSearch.lostCheck"
             id="lostCheck" />
@@ -60,7 +60,7 @@
             Lost
           </label>
         </div>
-        <!-- Status Checkbox 2 -->
+        <!--Status Checkbox 2-->
         <div class="form-check">
           <input type="checkbox" class="form-check-input" name="foundStrayCheck" [(ngModel)]="petSearch.foundStrayCheck"
             id="foundStrayCheck" />
@@ -68,7 +68,7 @@
             Found/Stray
           </label>
         </div>
-        <!-- Status Checkbox 3 -->
+        <!--Status Checkbox 3-->
         <div class="form-check">
           <input type="checkbox" class="form-check-input" name="reunitedCheck" [(ngModel)]="petSearch.reunitedCheck"
             id="reunitedCheck" />
@@ -77,7 +77,7 @@
           </label>
         </div>
       </div>
-      <!-- Gender Radio Buttons -->
+      <!--Gender Radio Buttons-->
       <div class="form-group col-md-3 col-6">
         <h4>
           <label>Pet Gender</label>
@@ -93,7 +93,7 @@
           <label class="form-check-label">Female</label>
         </div>
       </div>
-      <!-- Found Within Date Range Selection  -->
+      <!--Found Within Date Range Selection -->
       <div class="form-group col-lg-3 col-md-3 pb-2">
         <label for="dateRange">
           <h4>Found Within</h4>
@@ -102,7 +102,7 @@
           <option *ngFor="let dateRange of dateRanges" [value]>{{ dateRange }}</option>
         </select>
       </div>
-      <!-- Sort By Selection -->
+      <!--Sort By Selection-->
       <div class="form-group col-lg-3 col-md-3 pb-2">
         <label for="sortBy">
           <h4>Sort By</h4>
@@ -112,26 +112,26 @@
         </select>
       </div>
     </div>
-    <!-- Row 3 -->
-    <!-- Search Button -->
+    <!--Row 3-->
+    <!--Form Submit Button-->
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
         <button [disabled]=searchForm.form.invalid class="btn btn-block btn-secondary" type="submit" id="searchBtn">
-          <!-- Change type to submit after adding javascript to get form input values -->
           Find
         </button>
       </div>
     </div>
   </form>
 </div>
-<!-- Display form values. Will be removed. -->
-<!--ToDo: Fix select form values, currently are not being retrieved.-->
+<!--Display form values. Will be removed-->
 {{ searchForm.form.valid }}
 <hr />
 {{ searchForm.value | json }}
 <hr />
 {{ petSearch | json }}
 <hr />
-
-<app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>
+<!--Search Results-->
+<ng-container *ngIf="submitted">
+  <app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>
+</ng-container>

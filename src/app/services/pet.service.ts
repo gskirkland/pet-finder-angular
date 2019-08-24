@@ -8,9 +8,11 @@ import { Pet } from '../models/Pet';
   providedIn: 'root'
 })
 export class PetService {
+  // local json file where data is currently stored
   petsUrl = 'assets/pets/pets.json';
+  // url where the data will post
+  url = 'http://localhost:3000/getPetSearch';
 
-  url = ''; // Will be the url where the data will post
   constructor(private http: HttpClient) { }
 
   getPets(): Observable<Pet[]> {

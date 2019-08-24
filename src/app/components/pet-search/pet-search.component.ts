@@ -10,12 +10,13 @@ import { Pet } from '../../models/Pet';
 })
 export class PetSearchComponent implements OnInit {
   pets: Pet[];
+  submitted = false;
 
   // petType select box array
-  petTypes = ['All Species', 'Cat', 'Dog', 'Other']; // Fix default selected value to appear when page is loaded
+  petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
 
   // searchDistance select box array
-  searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles']; // Fix default selected value to appear when page is loaded
+  searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles'];
 
   // dateRange select box array
   dateRanges = [
@@ -25,10 +26,10 @@ export class PetSearchComponent implements OnInit {
     'Last 2 Weeks',
     'Last Month',
     'Any Time'
-  ]; // Fix default selected value to appear when page is loaded
+  ];
 
   // sortBy select box array
-  sortBySelections = ['Most Recent', 'Distance']; // Fix default selected value to appear when page is loaded
+  sortBySelections = ['Most Recent', 'Distance'];
 
   // new Pet property
   petSearch = new Pet(
@@ -46,25 +47,27 @@ export class PetSearchComponent implements OnInit {
 
   constructor(private petService: PetService) { }
 
-  // onSubmit() {
-  // this.petService.getPetSearch(this.petSearch)
-  // .subscribe(
-  // data => console.log('Success!', data),
-  // error => console.log('Error!', error)
-  // );
-  // }
-
   onSubmit() {
+    this.submitted = true;
+    this.petService.getPetSearch(this.petSearch)
+      .subscribe(
+        data => console.log('Success!', data),
+        error => console.log('Error!', error)
+      );
+  }
+
+  ngOnInit() {
     this.petService.getPets().subscribe(pets => {
       this.pets = pets;
     });
   }
-  ngOnInit() { } // Remove after setting up petService url to post data
 }
 
-  // ngOnInit() {
-    // this.petService.getPets().subscribe(pets => {
-      // this.pets = pets;
-    // });
+  // Below adds petSearch data to DOM using data stored in local json file
+  // onSubmit() {
+  // this.petService.getPets().subscribe(pets => {
+  // this.pets = pets;
+  // });
   // }
-// }
+  // ngOnInit() { } // Remove after setting up petService url to post data
+  // }
