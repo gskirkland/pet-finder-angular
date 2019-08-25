@@ -1,6 +1,6 @@
 [
   {
-    "petId": 12345,
+    "petId": "12345",
     "petType": "Dog",
     "location": "Cleveland, TN",
     "lostCheck": true,
@@ -12,7 +12,7 @@
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   },
   {
-    "petId": 23456,
+    "petId": "23456",
     "petType": "Dog",
     "location": "Cleveland, TN",
     "lostCheck": true,
@@ -24,7 +24,7 @@
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   },
   {
-    "petId": 34567,
+    "petId": "34567",
     "petType": "Dog",
     "location": "Cleveland, TN",
     "lostCheck": true,
@@ -36,7 +36,7 @@
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   },
   {
-    "petId": 45678,
+    "petId": "45678",
     "petType": "Dog",
     "location": "Cleveland, TN",
     "lostCheck": true,
@@ -48,7 +48,7 @@
     "petDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quis sint. Blanditiis itaque, autem laboriosam tempore deleniti iusto aut libero quam, consequatur alias placeat dolores vitae optio delectus."
   },
   {
-    "petId": 56789,
+    "petId": "56789",
     "petType": "Dog",
     "location": "Cleveland, TN",
     "lostCheck": true,

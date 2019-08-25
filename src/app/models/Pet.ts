@@ -1,6 +1,6 @@
 export class Pet {
   constructor(
-    public petId?: number,
+    public petId?: string,
     public petType?: string,
     public location?: string,
     public searchDistance?: string,

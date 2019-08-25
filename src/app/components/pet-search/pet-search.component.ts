@@ -34,9 +34,9 @@ export class PetSearchComponent implements OnInit {
 
   // new Pet property
   petSearch = new Pet(
-    null,
+    '',
     this.petTypes[0],
-    'Cleveland, TN 37312',
+    '',
     this.searchDistances[0],
     true,
     true,

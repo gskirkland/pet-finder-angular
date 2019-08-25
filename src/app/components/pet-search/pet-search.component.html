@@ -1,3 +1,10 @@
+<!--Is form value display for testing-->
+{{ searchForm.form.valid }}
+<!--User modified formcontrol values-->
+{{ searchForm.value | json }}<br/>
+<!--Initial formcontrol input values-->
+{{ petSearch | json }}
+
 <!--Search Form-->
 <div class="container rounded-lg text-white" id="formContainer">
   <!--ToDo: Need to use Reactive Forms since each time a change is triggered on the data model,
@@ -5,7 +12,8 @@
     This allows the ability to track unique changes to the data model through the control's observable.
     This provides one way for change detection to be more efficient because it only needs to update on 
     unique changes. It also follows reactive patterns that integrate with observable operators to transform data.-->
-  <!--Display HttpErrorResponse if error occurs-->
+
+  <!--Display HttpErrorResponse if error occurs. Move to different location.8/25/2019-->
   <div class="alert alert-danger" *ngIf="errorMsg">
     {{ errorMsg }}
   </div>
@@ -16,12 +24,12 @@
       <!--ToDo:Make petId FormControl to petId/petName to give user the choice of which to search by-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petId">
-          <h4>Pet ID</h4>
+          <h4>Pet ID or Name</h4>
         </label>
-        <input type="number" required #petId="ngModel" [class.is-invalid]="petId.invalid && petId.touched"
+        <input type="text" required #petId="ngModel" [class.is-invalid]="petId.invalid && petId.touched"
           class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'blur'}"
-          id="petId" placeholder="e.g. 1234567" />
-        <small class="text-danger" [class.d-none]="petId.valid || petId.untouched">Must be a number</small>
+          id="petId" placeholder="e.g. 12345" />
+        <small class="text-danger" [class.d-none]="petId.valid || petId.untouched">Invalid input message</small>
       </div>
       <!--Pet Type Input-->
       <div class="form-group col-lg-3 col-md-6">
@@ -37,8 +45,9 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <input type="text" class="form-control" name="location" [(ngModel)]="petSearch.location"
-          [ngModelOptions]="{updateOn: 'blur'}" id="location" placeholder="City, Zip, or Address" />
+        <input type="text" required #location="ngModel" [class.is-invalid]="location.invalid && location.touched" class="form-control" name="location" [(ngModel)]="petSearch.location"
+          [ngModelOptions]="{updateOn: 'blur'}" id="location" placeholder="Address, City, State or Zip Code" />
+        <small class="text-danger" [class.d-none]="location.valid || location.untouched">Invalid input message</small>
       </div>
       <!--Search Distance Radius Input-->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
@@ -59,7 +68,7 @@
           <label for="petStatus" id="statusLabel">Pet Status</label>
         </h4>
         <!--Status Checkbox 1-->
-        <div class="form-check">
+        <div class="form-check" name="tempChkBoxName">
           <input type="checkbox" class="form-check-input" name="lostCheck" [(ngModel)]="petSearch.lostCheck"
             id="lostCheck" />
           <label class="form-check-label" for="lostCheck">
@@ -82,8 +91,11 @@
             Reunited
           </label>
         </div>
+        <!--At least ONE checkbox above must be selected for the form to be valid.-->
+        <small class="text-danger">Temp invalid form message.</small>
       </div>
       <!--Gender Radio Buttons-->
+      <!--ToDo: Allow radioboxes the be de-selected after initial selection-->
       <div class="form-group col-md-3 col-6">
         <h4>
           <label>Pet Gender</label>
@@ -130,13 +142,6 @@
     </div>
   </form>
 </div>
-<!--Display form values. Will be removed-->
-{{ searchForm.form.valid }}
-<hr />
-{{ searchForm.value | json }}
-<hr />
-{{ petSearch | json }}
-<hr />
 <!--Search Results-->
 <ng-container *ngIf="submitted">
   <app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>
