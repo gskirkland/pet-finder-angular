@@ -9,16 +9,17 @@
   <div class="alert alert-danger" *ngIf="errorMsg">
     {{ errorMsg }}
   </div>
-  <form #searchForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
     <!--Row 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
       <!--Pet ID-->
+      <!--ToDo:Make petId FormControl to petId/petName to give user the choice of which to search by-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petId">
           <h4>Pet ID</h4>
         </label>
         <input type="number" required #petId="ngModel" [class.is-invalid]="petId.invalid && petId.touched"
-          class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'change'}"
+          class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'blur'}"
           id="petId" placeholder="e.g. 1234567" />
         <small class="text-danger" [class.d-none]="petId.valid || petId.untouched">Must be a number</small>
       </div>
@@ -52,6 +53,7 @@
     <!--Row 2-->
     <div class="form-row d-flex justify-content-around">
       <!--Status Checkboxes-->
+      <!--ToDo:At least ONE checkbox must be checked for form to be valid-->
       <div class="form-group col-md-3 col-6" id="petStatus">
         <h4>
           <label for="petStatus" id="statusLabel">Pet Status</label>
