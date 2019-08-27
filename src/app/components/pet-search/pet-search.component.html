@@ -29,7 +29,7 @@
         <label for="petType">
           <h4>Animal Type</h4>
         </label>
-        <select formControlName="petType" (change)="changePetType($event)">
+        <select formControlName="petType" (change)="changePetType($event)" class="custom-select">
           <option *ngFor="let petType of petTypes">{{ petType }}</option>
         </select>
       </div>
@@ -46,7 +46,7 @@
         <label for="searchDistance">
           <h4>Distance</h4>
         </label>
-        <select formControlName="searchDistance" (change)="changeSearchDistance($event)">
+        <select formControlName="searchDistance" (change)="changeSearchDistance($event)" class="custom-select">
           <option *ngFor="let searchDistance of searchDistances">{{ searchDistance }}</option>
         </select>
       </div>
@@ -103,7 +103,7 @@
         <label for="dateRange">
           <h4>Found Within</h4>
         </label>
-        <select formControlName="dateRange" (change)="changeDateRange($event)">
+        <select formControlName="dateRange" (change)="changeDateRange($event)" class="custom-select">
           <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
         </select>
       </div>
@@ -112,7 +112,7 @@
         <label for="sortBy">
           <h4>Sort By</h4>
         </label>
-        <select formControlName="sortBy" (change)="changeSortBy($event)">
+        <select formControlName="sortBy" (change)="changeSortBy($event)" class="custom-select">
           <option *ngFor="let sortBy of sortBySelections">{{ sortBy }}</option>
         </select>
       </div>
