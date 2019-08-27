@@ -1,43 +1,36 @@
-<!--Is form value display for testing-->
-{{ searchForm.form.valid }}
-<!--User modified formcontrol values-->
-{{ searchForm.value | json }}<br/>
-<!--Initial formcontrol input values-->
-{{ petSearch | json }}
-
 <!--Search Form-->
 <div class="container rounded-lg text-white" id="formContainer">
-  <!--ToDo: Need to use Reactive Forms since each time a change is triggered on the data model,
-    the FormControl instance returns a new data model rather than updating the existing data model.
-    This allows the ability to track unique changes to the data model through the control's observable.
-    This provides one way for change detection to be more efficient because it only needs to update on 
-    unique changes. It also follows reactive patterns that integrate with observable operators to transform data.-->
-
-  <!--Display HttpErrorResponse if error occurs. Move to different location.8/25/2019-->
-  <div class="alert alert-danger" *ngIf="errorMsg">
+  <!--ToDo:8/26/2019 Display HttpErrorResponse if error occurs. Change to work with new reactive form
+  <div class="alert alert-dange r" *ngIf="errorMsg">
     {{ errorMsg }}
   </div>
-  <form #searchForm="ngForm" (ngSubmit)="onSubmit()">
+  -->
+  <!--ToDo:8/26/2019 Fix select box styling-->
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <!--Row 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
       <!--Pet ID-->
-      <!--ToDo:Make petId FormControl to petId/petName to give user the choice of which to search by-->
+      <!--ToDo:8/26/2019 Make petId FormControl to petId/petName to give user the choice of which to search by-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petId">
           <h4>Pet ID or Name</h4>
         </label>
-        <input type="text" required #petId="ngModel" [class.is-invalid]="petId.invalid && petId.touched"
-          class="form-control" name="petId" [(ngModel)]="petSearch.petId" [ngModelOptions]="{updateOn: 'blur'}"
-          id="petId" placeholder="e.g. 12345" />
-        <small class="text-danger" [class.d-none]="petId.valid || petId.untouched">Invalid input message</small>
+        <input type="text" formControlName="petId" class="form-control" id="petId" />
+        <!--Invalid petId value message-->
+        <!--
+        <div *ngIf="petId.invalid && petId.touched">
+          <small class="text-danger" *ngIf="petId.errors?.required">Pet ID is required</small>
+          <small class="text-danger" *ngIf="petId.errors?.minlength">Pet ID must be at least 3 characters</small>
+        </div>
+        -->
       </div>
       <!--Pet Type Input-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petType">
           <h4>Animal Type</h4>
         </label>
-        <select class="custom-select" name="petType" [(ngModel)]="petSearch.petType" id="petType">
-          <option *ngFor="let petType of petTypes" [value]>{{ petType }}</option>
+        <select formControlName="petType" (change)="changePetType($event)">
+          <option *ngFor="let petType of petTypes">{{ petType }}</option>
         </select>
       </div>
       <!--Location Input-->
@@ -45,48 +38,44 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <input type="text" required #location="ngModel" [class.is-invalid]="location.invalid && location.touched" class="form-control" name="location" [(ngModel)]="petSearch.location"
-          [ngModelOptions]="{updateOn: 'blur'}" id="location" placeholder="Address, City, State or Zip Code" />
-        <small class="text-danger" [class.d-none]="location.valid || location.untouched">Invalid input message</small>
+        <input type="text" formControlName="location" class="form-control" id="location"
+          placeholder="Address, City, State or Zip Code" />
       </div>
       <!--Search Distance Radius Input-->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
         <label for="searchDistance">
           <h4>Distance</h4>
         </label>
-        <select class="custom-select" name="searchDistance" [(ngModel)]="petSearch.searchDistance" id="searchDistance">
-          <option *ngFor="let searchDistance of searchDistances" [value]>{{ searchDistance }}</option>
+        <select formControlName="searchDistance" (change)="changeSearchDistance($event)">
+          <option *ngFor="let searchDistance of searchDistances">{{ searchDistance }}</option>
         </select>
       </div>
     </div>
     <!--Row 2-->
     <div class="form-row d-flex justify-content-around">
       <!--Status Checkboxes-->
-      <!--ToDo:At least ONE checkbox must be checked for form to be valid-->
+      <!--ToDo:8/26/2019 At least ONE checkbox must be checked for form to be valid-->
       <div class="form-group col-md-3 col-6" id="petStatus">
         <h4>
           <label for="petStatus" id="statusLabel">Pet Status</label>
         </h4>
         <!--Status Checkbox 1-->
         <div class="form-check" name="tempChkBoxName">
-          <input type="checkbox" class="form-check-input" name="lostCheck" [(ngModel)]="petSearch.lostCheck"
-            id="lostCheck" />
+          <input type="checkbox" formControlName="lostCheck" class="form-check-input" id="lostCheck" />
           <label class="form-check-label" for="lostCheck">
             Lost
           </label>
         </div>
         <!--Status Checkbox 2-->
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" name="foundStrayCheck" [(ngModel)]="petSearch.foundStrayCheck"
-            id="foundStrayCheck" />
+          <input type="checkbox" formControlName="foundStrayCheck" class="form-check-input" id="foundStrayCheck" />
           <label class="form-check-label" for="foundStrayCheck">
             Found/Stray
           </label>
         </div>
         <!--Status Checkbox 3-->
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" name="reunitedCheck" [(ngModel)]="petSearch.reunitedCheck"
-            id="reunitedCheck" />
+          <input type="checkbox" formControlName="reunitedCheck" class="form-check-input" id="reunitedCheck" />
           <label class="form-check-label" for="reunitedCheck">
             Reunited
           </label>
@@ -95,19 +84,17 @@
         <small class="text-danger">Temp invalid form message.</small>
       </div>
       <!--Gender Radio Buttons-->
-      <!--ToDo: Allow radioboxes the be de-selected after initial selection-->
+      <!--ToDo:8/26/2019 Allow radioboxes the be de-selected after initial selection-->
       <div class="form-group col-md-3 col-6">
         <h4>
           <label>Pet Gender</label>
         </h4>
         <div class="form-check">
-          <input type="radio" class="form-check-input" name="petGender" [(ngModel)]="petSearch.petGender"
-            value="male" />
+          <input type="radio" formControlName="petGender" class="form-check-input" value="male" />
           <label class="form-check-label">Male</label>
         </div>
         <div class="form-check">
-          <input type="radio" class="form-check-input" name="petGender" [(ngModel)]="petSearch.petGender"
-            value="female" />
+          <input type="radio" formControlName="petGender" class="form-check-input" value="female" />
           <label class="form-check-label">Female</label>
         </div>
       </div>
@@ -116,8 +103,8 @@
         <label for="dateRange">
           <h4>Found Within</h4>
         </label>
-        <select class="custom-select" name="dateRange" [(ngModel)]="petSearch.dateRange" id="dateRange">
-          <option *ngFor="let dateRange of dateRanges" [value]>{{ dateRange }}</option>
+        <select formControlName="dateRange" (change)="changeDateRange($event)">
+          <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
         </select>
       </div>
       <!--Sort By Selection-->
@@ -125,8 +112,8 @@
         <label for="sortBy">
           <h4>Sort By</h4>
         </label>
-        <select class="custom-select" name="sortBy" [(ngModel)]="petSearch.sortBy" id="sortBy">
-          <option *ngFor="let sortBy of sortBySelections" [value]>{{ sortBy }}</option>
+        <select formControlName="sortBy" (change)="changeSortBy($event)">
+          <option *ngFor="let sortBy of sortBySelections">{{ sortBy }}</option>
         </select>
       </div>
     </div>
@@ -135,7 +122,7 @@
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
-        <button [disabled]=searchForm.form.invalid class="btn btn-block btn-secondary" type="submit" id="searchBtn">
+        <button class="btn btn-block btn-secondary" type="submit" id="searchBtn">
           Find
         </button>
       </div>
@@ -146,3 +133,5 @@
 <ng-container *ngIf="submitted">
   <app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>
 </ng-container>
+<!--User modified formcontrol values-->
+{{ searchForm.value | json }}

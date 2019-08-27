@@ -11,94 +11,86 @@ import { Pet } from '../../models/Pet';
   styleUrls: ['./pet-search.component.scss']
 })
 export class PetSearchComponent implements OnInit {
+  // petType values array for select box
+  petTypes: any = ['All Species', 'Cat', 'Dog', 'Other'];
+  // searchDistance values array for select box
+  searchDistances: any = ['10 miles', '25 miles', '50 miles', '100 miles'];
+  // dateRange values array for select box
+  dateRanges: any = [
+    'Last Day',
+    'Last 3 Days',
+    'Last Week',
+    'Last 2 Weeks',
+    'Last Month',
+    'Any Time'
+  ];
+  // sortBy select box array
+  sortBySelections: any = ['Most Recent', 'Distance'];
+  // inital value for submit button
+  submitted = false;
+  // inital value for errorMsg
+  errorMsg = '';
+  // pet array for displaying search results
+  pets: Pet[];
+
+
+  // Inject an instance of FormBuilder service and PetService
+  constructor(private fb: FormBuilder, private petService: PetService) { }
 
   // Create a new FormGroup with the FormBuilder Service
   searchForm = this.fb.group({
+    // value is an array first index is the default value, second index is an array of multiple validators
     petId: [''],
-    petType: [''],
+    petType: [this.petTypes[0]],
     location: [''],
-    searchDistance: [''],
-    lostCheck: [''],
-    foundStrayCheck: [''],
+    searchDistance: [this.searchDistances[0]],
+    lostCheck: [true],
+    foundStrayCheck: [true],
+    reunitedCheck: [false],
     petGender: [''],
-    dateRange: [''],
-    sortBy: ['']
+    dateRange: [this.dateRanges[0]],
+    sortBy: [this.sortBySelections[0]]
   });
 
+  // Select box setValue on change methods
+  // petType value
+  changePetType(e) {
+    this.searchForm.get('petType').setValue(e.target.value, {
+      onlySelf: true
+    });
+  }
+  // searchDistance value
+  changeSearchDistance(e) {
+    this.searchForm.get('searchDistance').setValue(e.target.value, {
+      onlySelf: true
+    });
+  }
+  // dateRange value
+  changeDateRange(e) {
+    this.searchForm.get('dateRange').setValue(e.target.value, {
+      onlySelf: true
+    });
+  }
+  // sortBy value
+  changeSortBy(e) {
+    this.searchForm.get('sortBy').setValue(e.target.value, {
+      onlySelf: true
+    });
+  }
 
-  constructor(private fb: FormBuilder) { }
+  // get search form values on submit method
+  onSubmit() {
+    this.submitted = true;
+    this.petService.getPetSearch(this.searchForm.value).subscribe(
+      data => console.log('Success!', data),
+      error => this.errorMsg = error.statusText
+    );
+
+    // get pet-items from local json file
+    this.petService.getPets().subscribe(pets => {
+      this.pets = pets;
+    });
+  }
 
   ngOnInit() { }
-
-}
-
-
-/* BELOW WILL WORK WITH TEMPLATE DRIVE FORM. WILL BE COMMENTED OUT WHILE REACTIVE FORM IS BEING MADE 8/25/2019
-export class PetSearchComponent implements OnInit {
-  pets: Pet[];
-  submitted = false;
-  errorMsg = '';
-
-  /* BELOW WILL WORK WITH TEMPLATE DRIVE FORM. WILL BE COMMENTED OUT WHILE REACTIVE FORM IS BEING MADE 8/25/2019
-    // petType select box array
-    petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
-  
-    // searchDistance select box array
-    searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles'];
-  
-    // dateRange select box array
-    dateRanges = [
-      'Last Day',
-      'Last 3 Days',
-      'Last Week',
-      'Last 2 Weeks',
-      'Last Month',
-      'Any Time'
-    ];
-  
-    // sortBy select box array
-    sortBySelections = ['Most Recent', 'Distance'];
-  
-    // new Pet property
-    petSearch = new Pet(
-      '',
-      this.petTypes[0],
-      '',
-      this.searchDistances[0],
-      true,
-      true,
-      false,
-      '',
-      this.dateRanges[0],
-      this.sortBySelections[0]
-    );
-  
-    constructor(private petService: PetService) { }
-  
-    onSubmit() {
-      this.submitted = true;
-      this.petService.getPetSearch(this.petSearch)
-        .subscribe(
-          data => console.log('Success!', data),
-          error => this.errorMsg = error.statusText
-        );
-    }
-  
-    ngOnInit() {
-      this.petService.getPets().subscribe(pets => {
-        this.pets = pets;
-      });
-    }
-  }
-  */
-
-  // Below adds petSearch data to DOM using data stored in local json file
-  // onSubmit() {
-  // this.petService.getPets().subscribe(pets => {
-  // this.pets = pets;
-  // });
-  // }
-  // ngOnInit() { } // Remove after setting up petService url to post data
-  // }
-
 }
