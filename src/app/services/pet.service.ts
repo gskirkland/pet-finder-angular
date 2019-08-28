@@ -12,7 +12,7 @@ import { Pet } from '../models/Pet';
 export class PetService {
   // local json file where data is currently stored
   petsUrl = 'assets/pets/pets.json';
-  // url where the data will post
+  // url where the data will post, start this fake API by entering \server directory and entering 'node server' in a terminal
   url = 'http://localhost:3000/getPetSearch';
 
   constructor(private http: HttpClient) { }

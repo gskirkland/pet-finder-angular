@@ -78,7 +78,7 @@ export class PetSearchComponent implements OnInit {
     });
   }
 
-  // get search form values on submit method
+  // get search form values
   onSubmit() {
     this.submitted = true;
     this.petService.getPetSearch(this.searchForm.value).subscribe(
