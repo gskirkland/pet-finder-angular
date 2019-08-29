@@ -6,7 +6,7 @@
   </div>
   -->
   <!--ToDo:8/26/2019 Fix select box styling-->
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)" novalidate>
     <!--Row 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
       <!--Pet ID-->
@@ -15,7 +15,8 @@
         <label for="petId">
           <h4>Pet ID or Name</h4>
         </label>
-        <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" />
+        <input type="text" [ngClass]="{'form-submitted': formSubmitted}" formControlName="petId" class="form-control"
+          id="petId" placeholder="e.g. 12345" />
         <!--Invalid petId value message-->
         <!--
         <div *ngIf="petId.invalid && petId.touched">
@@ -29,7 +30,8 @@
         <label for="petType">
           <h4>Animal Type</h4>
         </label>
-        <select formControlName="petType" (change)="changePetType($event)" class="custom-select">
+        <select formControlName="petType" (change)="changePetType($event)" [ngClass]="{'form-submitted': formSubmitted}"
+          class="custom-select">
           <option *ngFor="let petType of petTypes">{{ petType }}</option>
         </select>
       </div>
@@ -38,50 +40,56 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <input type="text" formControlName="location" class="form-control" id="location"
-          placeholder="Address, City, State or Zip Code" />
+        <input type="text" formControlName="location" [ngClass]="{'form-submitted': formSubmitted}" class="form-control"
+          id="location" placeholder="Address, City, State or Zip Code" />
       </div>
       <!--Search Distance Radius Input-->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
         <label for="searchDistance">
           <h4>Distance</h4>
         </label>
-        <select formControlName="searchDistance" (change)="changeSearchDistance($event)" class="custom-select">
+        <select formControlName="searchDistance" (change)="changeSearchDistance($event)"
+          [ngClass]="{'form-submitted': formSubmitted}" class="custom-select" id="searchDistance">
           <option *ngFor="let searchDistance of searchDistances">{{ searchDistance }}</option>
         </select>
       </div>
     </div>
     <!--Row 2-->
     <div class="form-row d-flex justify-content-around">
-      <!--Status Checkboxes-->
+      <!--Pet Status Form Group Checkboxes-->
       <!--ToDo:8/26/2019 At least ONE checkbox must be checked for form to be valid-->
-      <div class="form-group col-md-3 col-6" id="petStatus">
+      <div class="form-group col-md-3 col-6">
         <h4>
-          <label for="petStatus" id="statusLabel">Pet Status</label>
+          <label for="petStatusLabel" id="petStatusLabel">Pet Status</label>
         </h4>
         <!--Status Checkbox 1-->
-        <div class="form-check" name="tempChkBoxName">
-          <input type="checkbox" formControlName="lostCheck" class="form-check-input" id="lostCheck" />
+        <div class="form-check">
+          <input type="checkbox" formControlName="lostCheck" [ngClass]="{'form-submitted': formSubmitted}"
+            class="form-check-input" id="lostCheck" (change)="onCheckedChanged()" />
           <label class="form-check-label" for="lostCheck">
             Lost
           </label>
         </div>
         <!--Status Checkbox 2-->
         <div class="form-check">
-          <input type="checkbox" formControlName="foundStrayCheck" class="form-check-input" id="foundStrayCheck" />
+          <input type="checkbox" formControlName="foundStrayCheck" [ngClass]="{'form-submitted': formSubmitted}"
+            class="form-check-input" id="foundStrayCheck" (change)="onCheckedChanged()" />
           <label class="form-check-label" for="foundStrayCheck">
             Found/Stray
           </label>
         </div>
         <!--Status Checkbox 3-->
         <div class="form-check">
-          <input type="checkbox" formControlName="reunitedCheck" class="form-check-input" id="reunitedCheck" />
+          <input type="checkbox" formControlName="reunitedCheck" [ngClass]="{'form-submitted': formSubmitted}"
+            class="form-check-input" id="reunitedCheck" (change)="onCheckedChanged()" />
           <label class="form-check-label" for="reunitedCheck">
             Reunited
           </label>
         </div>
         <!--At least ONE checkbox above must be selected for the form to be valid.-->
+        <!--
         <small class="text-danger">Temp invalid form message.</small>
+        -->
       </div>
       <!--Gender Radio Buttons-->
       <!--ToDo:8/26/2019 Allow radioboxes the be de-selected after initial selection-->
@@ -90,11 +98,13 @@
           <label>Pet Gender</label>
         </h4>
         <div class="form-check">
-          <input type="radio" formControlName="petGender" class="form-check-input" value="male" />
+          <input type="radio" [ngClass]="{'form-submitted': formSubmitted}" formControlName="petGender" id="genderOpt1"
+            class="form-check-input" value="male" />
           <label class="form-check-label">Male</label>
         </div>
         <div class="form-check">
-          <input type="radio" formControlName="petGender" class="form-check-input" value="female" />
+          <input type="radio" [ngClass]="{'form-submitted': formSubmitted}" formControlName="petGender" id="genderOpt2"
+            class="form-check-input" value="female" />
           <label class="form-check-label">Female</label>
         </div>
       </div>
@@ -103,7 +113,8 @@
         <label for="dateRange">
           <h4>Found Within</h4>
         </label>
-        <select formControlName="dateRange" (change)="changeDateRange($event)" class="custom-select">
+        <select formControlName="dateRange" (change)="changeDateRange($event)"
+          [ngClass]="{'form-submitted': formSubmitted}" id="dateRange" class="custom-select">
           <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
         </select>
       </div>
@@ -112,7 +123,8 @@
         <label for="sortBy">
           <h4>Sort By</h4>
         </label>
-        <select formControlName="sortBy" (change)="changeSortBy($event)" class="custom-select">
+        <select formControlName="sortBy" (change)="changeSortBy($event)" id="sortBy"
+          [ngClass]="{'form-submitted': formSubmitted}" class="custom-select">
           <option *ngFor="let sortBy of sortBySelections">{{ sortBy }}</option>
         </select>
       </div>

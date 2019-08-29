@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 import { Pet } from '../models/Pet';
+import { ValidatorFn, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -30,3 +31,5 @@ export class PetService {
     return throwError(error);
   }
 }
+
+
