@@ -5,7 +5,7 @@
     {{ errorMsg }}
   </div>
   -->
-  <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)" novalidate>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)">
     <!--ROW 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
       <!--PET ID-->
@@ -16,12 +16,9 @@
         </label>
         <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" />
         <!--INVALID petId VALUE MESSAGE-->
-        <!--
         <div *ngIf="petId.invalid && petId.touched">
           <small class="text-danger" *ngIf="petId.errors?.required">Pet ID is required</small>
-          <small class="text-danger" *ngIf="petId.errors?.minlength">Pet ID must be at least 3 characters</small>
         </div>
-        -->
       </div>
       <!--petType SELECT-->
       <div class="form-group col-lg-3 col-md-6">
@@ -54,41 +51,38 @@
     <!--ROW 2-->
     <div class="form-row d-flex justify-content-around">
       <!--petStatus CHECKBOX GROUP-->
-      <div formGroupName="petStatus">
-        <div class="form-group col-md-3 col-6">
-          <h4>
-            <label for="petStatusLabel" id="petStatusLabel">Pet Status</label>
-          </h4>
-          <!--CHECKBOX 1-->
-          <div class="form-check">
-            <input type="checkbox" formControlName="lostCheck" class="form-check-input" id="lostCheck" />
-            <label class="form-check-label" for="lostCheck">
-              Lost
-            </label>
-          </div>
-          <!--CHECKBOX 2-->
-          <div class="form-check">
-            <input type="checkbox" formControlName="foundStrayCheck" class="form-check-input" id="foundStrayCheck" />
-            <label class="form-check-label" for="foundStrayCheck">
-              Found/Stray
-            </label>
-          </div>
-          <!--CHECKBOX 3-->
-          <div class="form-check">
-            <input type="checkbox" formControlName="reunitedCheck" class="form-check-input" id="reunitedCheck" />
-            <label class="form-check-label" for="reunitedCheck">
-              Reunited
-            </label>
-          </div>
-          <!--
-        <small class="text-danger">Temp invalid form message.</small>
-        -->
+      <div formGroupName="petStatus" class="form-group col-md-3 col-6">
+
+        <h4>
+          <label for="petStatusLabel" id="petStatusLabel">Pet Status</label>
+        </h4>
+        <!--CHECKBOX 1-->
+        <div class="form-check">
+          <input type="checkbox" formControlName="lostCheck" class="form-check-input" id="lostCheck" />
+          <label class="form-check-label" for="lostCheck">
+            Lost
+          </label>
+        </div>
+        <!--CHECKBOX 2-->
+        <div class="form-check">
+          <input type="checkbox" formControlName="foundStrayCheck" class="form-check-input" id="foundStrayCheck" />
+          <label class="form-check-label" for="foundStrayCheck">
+            Found/Stray
+          </label>
+        </div>
+        <!--CHECKBOX 3-->
+        <div class="form-check">
+          <input type="checkbox" formControlName="reunitedCheck" class="form-check-input" id="reunitedCheck" />
+          <label class="form-check-label" for="reunitedCheck">
+            Reunited
+          </label>
         </div>
         <!--INVALID CHECKBOX MESSAGE-->
-        <div *ngIf="searchForm.errors ?.requireOneCheckBoxToBeChecked" class="text-danger">At least one checkbox is
+        <small class="text-danger" *ngIf="searchForm.controls['petStatus'].errors ?.requireOneCheckBoxToBeChecked">At
+          least
+          one checkbox is
           required to check
-        </div>
-
+        </small>
       </div>
       <!--petGender RADIO BUTTONS-->
       <div class="form-group col-md-3 col-6">

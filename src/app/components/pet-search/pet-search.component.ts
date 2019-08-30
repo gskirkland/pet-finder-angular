@@ -1,6 +1,6 @@
 // COMPONENTS
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 // MODELS
 import { Pet } from '../../models/Pet';
 // SERVICES
@@ -36,39 +36,23 @@ export class PetSearchComponent implements OnInit {
   // INIT PET LIST
   pets: Pet[];
 
-  // INJECT INSTANCE OF FORMBUILDER AND PETSERVICE
-  constructor(private fb: FormBuilder, private petService: PetService) { }
+  // INJECT INSTANCE OF PETSERVICE
+  constructor(private petService: PetService) { }
 
-  searchForm = this.fb.group({
-    petId: [null],
-    petType: [this.petTypes[0]],
-    location: [null],
-    searchDistance: [this.searchDistances[0], [Validators.required]],
-    petStatus: this.fb.group({
-      lostCheck: [true, [requireCheckBoxesToBeCheckedValidator]],
-      foundStrayCheck: [true, [requireCheckBoxesToBeCheckedValidator]],
-      reunitedCheck: [false, [requireCheckBoxesToBeCheckedValidator]]
-    }),
-    petGender: ['male'],
-    dateRange: [this.dateRanges[0], [Validators.required]],
-    sortBy: [this.sortBySelections[0], [Validators.required]],
+  searchForm = new FormGroup({
+    petId: new FormControl('', [Validators.required]),
+    petType: new FormControl(this.petTypes[0]),
+    location: new FormControl(''),
+    searchDistance: new FormControl(this.searchDistances[0], [Validators.required]),
+    petStatus: new FormGroup({
+      lostCheck: new FormControl(true),
+      foundStrayCheck: new FormControl(true),
+      reunitedCheck: new FormControl(false),
+    }, requireCheckBoxesToBeCheckedValidator()),
+    petGender: new FormControl('male'),
+    dateRange: new FormControl(this.dateRanges[0], [Validators.required]),
+    sortBy: new FormControl(this.sortBySelections[0], [Validators.required]),
   });
-
-  getPetStatusGroup() {
-    const lostCheck = this.searchForm.get('petStatus.lostCheck');
-    const foundStrayCheck = this.searchForm.get('petStatus.foundStrayCheck');
-    const reunitedCheck = this.searchForm.get('petStaths.reunitedCheck');
-  }
-
-  // TEMPORARY SUBMIT METHOD, SHOWS HARDCODED SEARCH RESULTS
-  onSubmit(event) {
-    event.preventDefault();
-    this.submitted = true;
-
-    if (this.searchForm.valid) {
-      console.log(this.searchForm.value);
-    }
-  }
 
   // GET SEARCH FORM VALUES
   // onSubmit() {
@@ -107,6 +91,57 @@ export class PetSearchComponent implements OnInit {
     this.searchForm.get('sortBy').setValue(e.target.value, {
       onlySelf: true
     });
+  }
+
+  // GET FORMCONTROLS
+  get petId() {
+    return this.searchForm.get('petId');
+  }
+
+  get petType() {
+    return this.searchForm.get('petType');
+  }
+
+  get location() {
+    return this.searchForm.get('location');
+  }
+
+  get searchDistance() {
+    return this.searchForm.get('searchDistance');
+  }
+
+  get lostCheck() {
+    return this.searchForm.get('petStatus.lostCheck');
+  }
+
+  get foundStrayCheck() {
+    return this.searchForm.get('petStatus.foundStrayCheck');
+  }
+
+  get reunitedCheck() {
+    return this.searchForm.get('petStatus.reunitedCheck');
+  }
+
+  get petGender() {
+    return this.searchForm.get('petGender');
+  }
+
+  get dateRange() {
+    return this.searchForm.get('dateRange');
+  }
+
+  get sortBy() {
+    return this.searchForm.get('sortBy');
+  }
+
+  // TEMPORARY SUBMIT METHOD, SHOWS HARDCODED SEARCH RESULTS
+  onSubmit(event) {
+    event.preventDefault();
+    this.submitted = true;
+
+    if (this.searchForm.valid) {
+      console.log(this.searchForm.value);
+    }
   }
 
   ngOnInit() { }
