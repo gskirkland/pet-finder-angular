@@ -1,7 +1,7 @@
 <!--SEARCH FORM-->
 <div class="container rounded-lg text-white" id="formContainer">
   <!--ToDo:8/26/2019 Display HttpErrorResponse if error occurs. Change to work with new reactive form
-  <div class="alert alert-dange r" *ngIf="errorMsg">
+  <div class="alert alert-danger" *ngIf="errorMsg">
     {{ errorMsg }}
   </div>
   -->
@@ -14,10 +14,10 @@
         <label for="petId">
           <h4>Pet ID or Name</h4>
         </label>
-        <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" />
+        <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" required />
         <!--INVALID petId VALUE MESSAGE-->
         <div *ngIf="petId.invalid && petId.touched">
-          <small class="text-danger" *ngIf="petId.errors?.required">Pet ID is required</small>
+          <div class="alert alert-danger" *ngIf="petId.errors?.required">Pet ID is required</div>
         </div>
       </div>
       <!--petType SELECT-->
@@ -78,11 +78,12 @@
           </label>
         </div>
         <!--INVALID CHECKBOX MESSAGE-->
-        <small class="text-danger" *ngIf="searchForm.controls['petStatus'].errors ?.requireOneCheckBoxToBeChecked">At
+        <div class="alert alert-danger" *ngIf="searchForm.controls['petStatus'].errors ?.requireOneCheckBoxToBeChecked">
+          At
           least
           one checkbox is
           required to check
-        </small>
+        </div>
       </div>
       <!--petGender RADIO BUTTONS-->
       <div class="form-group col-md-3 col-6">
