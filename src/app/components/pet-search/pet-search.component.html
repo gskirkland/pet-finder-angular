@@ -17,7 +17,7 @@
         <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" required />
         <!--INVALID petId VALUE MESSAGE-->
         <div *ngIf="petId.invalid && petId.touched">
-          <div class="alert alert-danger" *ngIf="petId.errors?.required">Pet ID is required</div>
+          <div class="alert alert-danger">Pet ID is required</div>
         </div>
       </div>
       <!--petType SELECT-->
@@ -120,6 +120,7 @@
     </div>
     <!--ROW 3-->
     <!--SUBMIT FORM BUTTON-->
+    <!--ToDo:9/3/2019 Disable Button when form=invalid-->
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">

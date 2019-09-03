@@ -54,19 +54,19 @@ export class PetSearchComponent implements OnInit {
     sortBy: new FormControl(this.sortBySelections[0], [Validators.required]),
   });
 
-  // GET SEARCH FORM VALUES
-  // onSubmit() {
-  //   this.submitted = true;
-  //   this.petService.getPetSearch(this.searchForm.value).subscribe(
-  //     data => console.log('Success!', data),
-  //     error => this.errorMsg = error.statusText
-  //   );
+  // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
+  //  onSubmit() {
+  //    this.submitted = true;
+  //    this.petService.getPetSearch(this.searchForm.value).subscribe(
+  //      data => console.log('Success!', data),
+  //      error => this.errorMsg = error.statusText
+  //    );
   //
-  //   // GET PET-ITEMS FROM JSON FILE
-  //   this.petService.getPets().subscribe(pets => {
-  //     this.pets = pets;
-  //   });
-  // }
+  //    // GET PET-ITEMS FROM JSON FILE
+  //    this.petService.getPets().subscribe(pets => {
+  //      this.pets = pets;
+  //    });
+  //  }
 
   // CHANGE petType VALUE
   changePetType(e) {
@@ -134,15 +134,21 @@ export class PetSearchComponent implements OnInit {
     return this.searchForm.get('sortBy');
   }
 
-  // TEMPORARY SUBMIT METHOD, SHOWS HARDCODED SEARCH RESULTS
+  // TEMPORARY SUBMIT METHOD, SHOWS GET SEARCH FORM VALUES IF SEARCH FORM IS VALID
   onSubmit(event) {
     event.preventDefault();
     this.submitted = true;
 
     if (this.searchForm.valid) {
       console.log(this.searchForm.value);
+
+      // GET PET-ITEMS FROM JSON FILE
+      this.petService.getPets().subscribe(pets => {
+        this.pets = pets;
+      });
     }
   }
 
   ngOnInit() { }
+
 }
