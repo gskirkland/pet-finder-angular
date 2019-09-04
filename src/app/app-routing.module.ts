@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PetSearchComponent } from './components/pet-search/pet-search.component';
+import { ReportPetComponent } from './components/report-pet/report-pet.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'search', component: PetSearchComponent },
+  { path: 'report', component: ReportPetComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
