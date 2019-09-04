@@ -17,7 +17,7 @@ export class PetService {
   url = 'http://localhost:3000/getPetSearch';
 
   constructor(private http: HttpClient) { }
-
+  // Get all pets
   getPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(this.petsUrl);
   }

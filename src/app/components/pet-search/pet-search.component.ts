@@ -34,7 +34,7 @@ export class PetSearchComponent implements OnInit {
   // INIT ERRORMSG
   errorMsg = '';
   // INIT PET LIST
-  pets: Pet[];
+  pets = [];
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
@@ -141,6 +141,11 @@ export class PetSearchComponent implements OnInit {
 
     if (this.searchForm.valid) {
       console.log(this.searchForm.value);
+      this.petService.getPetSearch(this.searchForm.value)
+        .subscribe(
+          response => console.log('Success!', response),
+          error => this.errorMsg = error.statusText
+        );
 
       // GET PET-ITEMS FROM JSON FILE
       this.petService.getPets().subscribe(pets => {
@@ -149,6 +154,9 @@ export class PetSearchComponent implements OnInit {
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.petService.getPets()
+      .subscribe(data => this.pets = data);
+  }
 
 }

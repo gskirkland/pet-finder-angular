@@ -1,9 +1,9 @@
 <div class="container rounded-lg mt-1 pt-1 pb-1" id="resultsContainer">
-  <div class="card shadow-lg">
+  <div class="card">
     <div class="row">
       <!--ToDo: Fix clickable hover area around resized images in search results-->
       <div class="col-md-4">
-        <a href="#" title="Help find this pet">
+        <a href="#" [title]="'See more about ' + pet.petName">
           <img class="img-fluid rounded" [src]="pet.imageUrl" alt="Pet image" />
         </a>
       </div>
@@ -17,7 +17,7 @@
           {{ pet.petDescription }}
         </p>
         <p class="card-text">
-          <a href="#" title="Help find this pet" class="stretched-link">See pet</a>
+          <a href="#" [title]="'See more about ' + pet.petName" class="stretched-link">See pet</a>
         </p>
       </div>
     </div>
