@@ -1,9 +1,10 @@
 <!--REPORT FORM-->
 <div class="container rounded-lg text-white" id="formContainer">
-
   <div class="alert alert-danger" *ngIf="errorMsg">
     {{ errorMsg }}
   </div>
+  <!--UNDER CONSTRUCTION: REMOVE LATER-->
+  <h1 class="text-dark">UNDER CONSTRUCTION</h1>
   <form [formGroup]="reportForm" (ngSubmit)="onSubmit($event)">
     <!--ROW 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
