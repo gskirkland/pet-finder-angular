@@ -32,9 +32,9 @@ export class PetSearchComponent implements OnInit {
   // DEFAULT VALUE OF SUBMIT EVENT
   submitted = false;
   // INIT ERRORMSG
-  errorMsg = '';
+  public errorMsg = '';
   // INIT PET LIST
-  pets = [];
+  public pets = [];
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
