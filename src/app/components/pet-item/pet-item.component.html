@@ -9,8 +9,19 @@
       </div>
       <div class="card-body col-md-8 text-center text-md-left">
         <h3 class="card-title">{{ pet.petName }} <span class="small"> {{ pet.petGender }} {{ pet.petType }}</span></h3>
-        <h5>
+        <!--SHOW LOST BADGE-->
+        <h5 *ngIf="pet.lostCheck">
           <span class="badge badge-pill badge-danger">Lost</span>
+          PET ID: {{ pet.petId }}
+        </h5>
+        <!--SHOW FOUND BADGE-->
+        <h5 *ngIf="pet.foundStrayCheck">
+          <span class="badge badge-pill badge-warning">Found</span>
+          PET ID: {{ pet.petId }}
+        </h5>
+        <!--SHOW REUNITED BADGE-->
+        <h5 *ngIf="pet.reunitedCheck">
+          <span class="badge badge-pill badge-success">Reunited</span>
           PET ID: {{ pet.petId }}
         </h5>
         <p>
