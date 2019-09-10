@@ -15,11 +15,11 @@ import { requireCheckBoxesToBeCheckedValidator } from '../../validators/custom.v
 })
 export class PetSearchComponent implements OnInit {
   // petType SELECT VALUES
-  petTypes: any = ['All Species', 'Cat', 'Dog', 'Other'];
+  petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
   // searchDistance SELECT VALUES
-  searchDistances: any = ['10 miles', '25 miles', '50 miles', '100 miles'];
+  searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles'];
   // dateRange SELECT VALUES
-  dateRanges: any = [
+  dateRanges = [
     'Last Day',
     'Last 3 Days',
     'Last Week',
@@ -28,7 +28,7 @@ export class PetSearchComponent implements OnInit {
     'Any Time'
   ];
   // sortBy SELECT VALUES
-  sortBySelections: any = ['Most Recent', 'Distance'];
+  sortBySelections = ['Most Recent', 'Distance'];
   // DEFAULT VALUE OF SUBMIT EVENT
   submitted = false;
   // INIT ERRORMSG
