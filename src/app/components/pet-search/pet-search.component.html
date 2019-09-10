@@ -1,10 +1,12 @@
 <!--SEARCH FORM-->
 <div class="container rounded-lg text-white" id="formContainer">
   <!--
+    SHOW ERRORMSG IF HTTP REQUEST ERROR OCCURS. If server is not running, UNKNOW ERROR will be displayed. See README.md for instructions on how to run server.
+  -->
   <div class="alert alert-danger" *ngIf="errorMsg">
     {{ errorMsg }}
   </div>
--->
+
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)">
     <!--ROW 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
