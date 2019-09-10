@@ -12,7 +12,7 @@ import { requireCheckBoxesToBeCheckedValidator } from '../../validators/custom.v
 })
 export class ReportPetComponent implements OnInit {
   // petType SELECT VALUES
-  petTypes: any = ['All Species', 'Cat', 'Dog', 'Other'];
+  petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
   // DEFAULT VALUE OF SUBMIT EVENT
   submitted = false;
   // INIT ERRORMSG
@@ -24,15 +24,15 @@ export class ReportPetComponent implements OnInit {
   constructor(private petService: PetService) { }
 
   reportForm = new FormGroup({
-    petId: new FormControl(''),
+    petName: new FormControl(''),
     petType: new FormControl(this.petTypes[0]),
     location: new FormControl(''),
     petStatus: new FormGroup({
       lostCheck: new FormControl(true),
       foundStrayCheck: new FormControl(false),
     }, requireCheckBoxesToBeCheckedValidator()),
-    petGender: new FormControl('male'),
-    dateLostFound: new FormControl(''),
+    petGender: new FormControl(''),
+    addedDate: new FormControl('', [Validators.required]),
   });
 
   // CHANGE petType VALUE

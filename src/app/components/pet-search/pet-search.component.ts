@@ -18,8 +18,8 @@ export class PetSearchComponent implements OnInit {
   petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
   // searchDistance SELECT VALUES
   searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles'];
-  // dateRange SELECT VALUES
-  dateRanges = [
+  // addedDate SELECT VALUES
+  addedDates = [
     'Last Day',
     'Last 3 Days',
     'Last Week',
@@ -50,7 +50,7 @@ export class PetSearchComponent implements OnInit {
       reunitedCheck: new FormControl(false),
     }, requireCheckBoxesToBeCheckedValidator()),
     petGender: new FormControl('male'),
-    dateRange: new FormControl(this.dateRanges[0], [Validators.required]),
+    addedDate: new FormControl(this.addedDates[0], [Validators.required]),
     sortBy: new FormControl(this.sortBySelections[0], [Validators.required]),
   });
 
@@ -80,9 +80,9 @@ export class PetSearchComponent implements OnInit {
       onlySelf: true
     });
   }
-  // CHANGE dateRange VALUE
-  changeDateRange(e) {
-    this.searchForm.get('dateRange').setValue(e.target.value, {
+  // CHANGE addedDate VALUE
+  changeAddedDate(e) {
+    this.searchForm.get('addedDate').setValue(e.target.value, {
       onlySelf: true
     });
   }
@@ -126,8 +126,8 @@ export class PetSearchComponent implements OnInit {
     return this.searchForm.get('petGender');
   }
 
-  get dateRange() {
-    return this.searchForm.get('dateRange');
+  get addedDate() {
+    return this.searchForm.get('addedDate');
   }
 
   get sortBy() {

@@ -9,7 +9,7 @@ export class Pet {
     public foundStrayCheck: boolean,
     public reunitedCheck: boolean,
     public petGender: string,
-    public dateRange: string,
+    public addedDate: Date,
     public sortBy: string,
     public imageUrl: string,
     public petDescription: string

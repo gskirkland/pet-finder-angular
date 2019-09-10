@@ -105,13 +105,13 @@
           <label class="form-check-label">Female</label>
         </div>
       </div>
-      <!--dateRange SELECT-->
+      <!--addedDate SELECT-->
       <div class="form-group col-lg-3 col-md-3 pb-2">
-        <label for="dateRange">
+        <label for="addedDate">
           <h4>Found Within</h4>
         </label>
-        <select formControlName="dateRange" (change)="changeDateRange($event)" id="dateRange" class="custom-select">
-          <option *ngFor="let dateRange of dateRanges">{{ dateRange }}</option>
+        <select formControlName="addedDate" (change)="changeAddedDate($event)" id="addedDate" class="custom-select">
+          <option *ngFor="let addedDate of addedDates">{{ addedDate }}</option>
         </select>
       </div>
       <!--sortBy SELECT-->

@@ -8,13 +8,12 @@
   <form [formGroup]="reportForm" (ngSubmit)="onSubmit($event)">
     <!--ROW 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
-      <!--PET ID-->
-      <!--ToDo:9/4/2019 Make petId FormControl to petId/petName to give user the choice of which to enter by-->
+      <!--petName INPUT-->
       <div class="form-group col-lg-3 col-md-6">
-        <label for="petId">
-          <h4>Pet ID or Name</h4>
+        <label for="petName">
+          <h4>Pet Name</h4>
         </label>
-        <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" required />
+        <input type="text" formControlName="petName" class="form-control" id="petName" />
       </div>
       <!--petType SELECT-->
       <div class="form-group col-lg-3 col-md-6">
@@ -77,12 +76,12 @@
           <label class="form-check-label">Female</label>
         </div>
       </div>
-      <!--dateLostFound INPUT-->
+      <!--addedDate INPUT-->
       <div class="form-group col-lg-3 col-md-3 pb-2">
-        <label for="dateLostFound">
+        <label for="addedDate">
           <h4>Date Lost/Found</h4>
         </label>
-        <input type="date" formControlName="dateLostFound" id="dateLostFound" class="form-control">
+        <input type="date" formControlName="addedDate" id="addedDate" class="form-control" required>
       </div>
     </div>
     <!--ROW 3-->
