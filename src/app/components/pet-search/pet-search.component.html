@@ -1,12 +1,16 @@
+<!--
+  SHOW ERRORMSG IF HTTP REQUEST ERROR OCCURS. If server is not running, UNKNOW ERROR will be displayed.
+  How to start server:
+  1-Open new terminal and enter 'cd server' to enter server directory.
+  2-Run the following command: 'node server'. This will start the server on localhost:3000
+  3-Open browser and navigate to http://localhost:3000. If server is running a welcome message will be displayed. 
+-->
+<div class="alert alert-danger" *ngIf="errorMsg">
+  {{ errorMsg }}
+</div>
+
 <!--SEARCH FORM-->
 <div class="container rounded-lg text-white" id="formContainer">
-  <!--
-    SHOW ERRORMSG IF HTTP REQUEST ERROR OCCURS. If server is not running, UNKNOW ERROR will be displayed. See README.md for instructions on how to run server.
-  -->
-  <div class="alert alert-danger" *ngIf="errorMsg">
-    {{ errorMsg }}
-  </div>
-
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)">
     <!--ROW 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
