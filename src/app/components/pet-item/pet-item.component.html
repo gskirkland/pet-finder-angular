@@ -1,29 +1,45 @@
 <div class="container rounded-lg mt-1 pt-1 pb-1" id="resultsContainer">
   <div class="card">
     <div class="row">
-      <!--ToDo: Fix clickable hover area around resized images in search results-->
+      <!--ToDo:9/10/2019 Fix image size and responsiveness-->
       <div class="col-md-4">
         <a href="#" [title]="'See more about ' + pet.petName">
           <img class="img-fluid rounded" [src]="pet.imageUrl" alt="Pet image" />
         </a>
       </div>
       <div class="card-body col-md-8 text-center text-md-left">
-        <h3 class="card-title">{{ pet.petName }} <span class="small"> {{ pet.petGender }} {{ pet.petType }}</span></h3>
+        <div class="row mt-0 mb-0">
+          <div class="col-md-6 pl-0 pr-0">
+            <h3 class="card-title">{{ pet.petName }} <span class="small"> {{ pet.petGender }} {{ pet.petType }}</span>
+            </h3>
+          </div>
+          <div class="col-md-6 pr-0 pl-0 text-right">
+            {{ pet.addedDate | date:'short' }}
+          </div>
+        </div>
         <!--SHOW LOST BADGE-->
-        <h5 *ngIf="pet.lostCheck">
-          <span class="badge badge-pill badge-danger">Lost</span>
-          PET ID: {{ pet.petId }}
-        </h5>
-        <!--SHOW FOUND BADGE-->
-        <h5 *ngIf="pet.foundStrayCheck">
-          <span class="badge badge-pill badge-primary">Found</span>
-          PET ID: {{ pet.petId }}
-        </h5>
-        <!--SHOW REUNITED BADGE-->
-        <h5 *ngIf="pet.reunitedCheck">
-          <span class="badge badge-pill badge-success">Reunited</span>
-          PET ID: {{ pet.petId }}
-        </h5>
+        <div class="row mt-0 mb-0">
+          <div class="col-12 pl-0 pr-0">
+
+            <h5 *ngIf="pet.lostCheck">
+              <span class="badge badge-pill badge-danger">Lost</span>
+              PET ID: {{ pet.petId }}
+            </h5>
+            <!--SHOW FOUND BADGE-->
+            <h5 *ngIf="pet.foundStrayCheck">
+              <span class="badge badge-pill badge-primary">Found</span>
+              PET ID: {{ pet.petId }}
+            </h5>
+            <!--SHOW REUNITED BADGE-->
+            <h5 *ngIf="pet.reunitedCheck">
+              <span class="badge badge-pill badge-success">Reunited</span>
+              PET ID: {{ pet.petId }}
+            </h5>
+          </div>
+        </div>
+        <h4 class="text-dark">
+          {{ pet.location }}
+        </h4>
         <p>
           {{ pet.petDescription }}
         </p>
