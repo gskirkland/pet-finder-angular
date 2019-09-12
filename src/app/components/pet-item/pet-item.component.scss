@@ -27,6 +27,12 @@
   }
 }
 
+@media all and (min-width: 1200px) {
+  .container {
+    height: 265px;
+  }
+}
+
 .card-title {
   margin-bottom: 0;
 }
@@ -68,14 +74,14 @@ h4 {
 
 // Borders added for layout positioning. Remove when finished
 .image-container {
+  display: flex;
   border: 1px solid orange;
   margin: 0;
   padding: 0;
-
-  img {
-    border: 1px solid orange;
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
+}
+img {
+  border: 1px solid orange;
+  max-width: 100%;
+  height: auto;
+  // object-fit: cover;
 }
