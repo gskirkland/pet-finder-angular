@@ -72,15 +72,13 @@ h4 {
   padding-top: 15px;
 }
 
-// Borders added for layout positioning. Remove when finished
 .image-container {
   display: flex;
-  border: 1px solid orange;
   margin: 0;
   padding: 0;
 }
+
 img {
-  border: 1px solid orange;
   max-width: 100%;
   height: auto;
   // object-fit: cover;
