@@ -2,25 +2,68 @@
 
 #resultsContainer {
   background-color: #22804c;
+  padding: 15px;
 }
 
 .card {
   background: $secondary-color;
   color: $primary-color;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-body {
-  padding: 0px 15px;
+  margin: 0;
+  padding: 15px;
 }
 
 .row {
   margin: 0;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  padding: 0;
+}
+
+.card-body {
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    padding: 0px 0px 0px 15px;
+  }
+}
+
+.card-title {
+  margin-bottom: 0;
 }
 
 .card-text {
   margin-bottom: 0;
+}
+
+#status-petid-container {
+  padding-top: 12px;
+}
+
+h5 {
+  margin-bottom: 0;
+}
+
+h4 {
+  margin-bottom: 0;
+  padding-top: 0.5rem;
+}
+
+.pet-description-container {
+  margin-bottom: 0;
+  padding-top: 8px;
+}
+
+#see-pet-link {
+  padding-top: 15px;
+}
+
+// Borders added for layout positioning. Remove when finished
+.image-container {
+  border: 1px solid orange;
+  margin: 0;
+  padding: 0;
+
+  img {
+    border: 1px solid orange;
+  }
 }
