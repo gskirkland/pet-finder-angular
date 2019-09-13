@@ -21,20 +21,12 @@
   padding: 0;
 }
 
-@media (min-width: 768px) {
-  .card-body {
-    padding: 0px 0px 0px 15px;
-  }
-}
-
-@media all and (min-width: 1200px) {
-  .container {
-    height: 265px;
-  }
-}
-
 .card-title {
   margin-bottom: 0;
+}
+
+#addedDate {
+  align-self: flex-start;
 }
 
 .card-text {
@@ -82,4 +74,16 @@ img {
   max-width: 100%;
   height: auto;
   // object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    height: 265px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    padding: 0px 0px 0px 15px;
+  }
 }

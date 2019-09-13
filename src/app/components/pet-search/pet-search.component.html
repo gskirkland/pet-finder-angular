@@ -126,7 +126,6 @@
     </div>
     <!--ROW 3-->
     <!--SUBMIT FORM BUTTON-->
-    <!--ToDo:9/3/2019 Disable Button when form=invalid-->
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
@@ -139,7 +138,7 @@
 </div>
 <!--SEARCH RESULTS-->
 <ng-container *ngIf="submitted">
-  <app-pet-item *ngFor="let pet of pets" [pet]="pet"> </app-pet-item>
+  <app-pet-item *ngFor="let pet of sortedPets" [pet]="pet"> </app-pet-item>
 </ng-container>
 <!--User modified formcontrol values-->
 {{ searchForm.value | json }}

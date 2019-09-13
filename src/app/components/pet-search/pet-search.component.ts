@@ -150,7 +150,18 @@ export class PetSearchComponent implements OnInit {
       // GET PET-ITEMS FROM JSON FILE
       this.petService.getPets().subscribe(pets => {
         this.pets = pets;
+        console.log(this.pets);
       });
+    }
+  }
+
+  // SORT pets BY MOST RECENT PET ADDED
+  public get sortedPets(): object {
+    if (this.sortBy.value === 'Most Recent') {
+      return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? -1 : ((b.addedDate > a.addedDate) ? 1 : 0));
+    } else {
+      // ToDo: 9/12/2019 Sort by distance from user's location.
+      return this.pets.sort((a, b) => (a.location > b.location) ? 1 : ((b.location > a.location) ? -1 : 0));
     }
   }
 
