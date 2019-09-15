@@ -35,6 +35,8 @@ export class PetSearchComponent implements OnInit {
   public errorMsg = '';
   // INIT PET LIST
   public pets = [];
+  // SEARCH TERM
+  searchTerm: string;
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
@@ -89,6 +91,13 @@ export class PetSearchComponent implements OnInit {
   // CHANGE sortBy VALUE
   changeSortBy(e) {
     this.searchForm.get('sortBy').setValue(e.target.value, {
+      onlySelf: true
+    });
+  }
+
+  // CHANGE location VALUE
+  changeLocation(e) {
+    this.searchForm.get('location').setValue(e.target.value, {
       onlySelf: true
     });
   }

@@ -12,6 +12,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PetSearchComponent } from './components/pet-search/pet-search.component';
 import { PetItemComponent } from './components/pet-item/pet-item.component';
 import { ReportPetComponent } from './components/report-pet/report-pet.component';
+// PIPES
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ReportPetComponent } from './components/report-pet/report-pet.component
     FooterComponent,
     PetSearchComponent,
     PetItemComponent,
-    ReportPetComponent
+    ReportPetComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
