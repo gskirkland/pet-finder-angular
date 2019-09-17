@@ -40,8 +40,9 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <input type="text" formControlName="location" (keyup)="changeLocation($event)" class="form-control"
-          id="location" placeholder="Address, City, State or Zip Code" />
+        <!--ToDo: 9/16/2019 - Change from [(ngModel)] for filter pipe usage. Deprecated after Angular 6-->
+        <input formControlName="location" class="form-control" (onblur)="changeLocation($event)"
+          placeholder="Address, City, State or Zip Code" [(ngModel)]="searchTerm" />
       </div>
       <!--searchDistance SELECT-->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
@@ -138,7 +139,7 @@
 </div>
 <!--SEARCH RESULTS-->
 <ng-container *ngIf="submitted">
-  <app-pet-item *ngFor="let pet of sortedPets" [pet]="pet"> </app-pet-item>
+  <app-pet-item *ngFor="let pet of sortedPets | searchFilter:searchTerm" [pet]="pet"> </app-pet-item>
 </ng-container>
 <!--User modified formcontrol values-->
 {{ searchForm.value | json }}

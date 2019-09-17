@@ -98,7 +98,7 @@ export class PetSearchComponent implements OnInit {
   // CHANGE location VALUE
   changeLocation(e) {
     this.searchForm.get('location').setValue(e.target.value, {
-      onlySelf: true
+      searchTerm: this.searchForm.value('location')
     });
   }
 
@@ -111,9 +111,9 @@ export class PetSearchComponent implements OnInit {
     return this.searchForm.get('petType');
   }
 
-  get location() {
-    return this.searchForm.get('location');
-  }
+  // get location() {
+  //   return this.searchForm.get('location');
+  // }
 
   get searchDistance() {
     return this.searchForm.get('searchDistance');
