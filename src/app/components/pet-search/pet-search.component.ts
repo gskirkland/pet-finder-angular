@@ -7,6 +7,8 @@ import { Pet } from '../../models/Pet';
 import { PetService } from '../../services/pet.service';
 // CUSTOM VALIDATOR
 import { requireCheckBoxesToBeCheckedValidator } from '../../validators/custom.validators';
+import { filter } from 'rxjs/operators';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-pet-search',
@@ -40,6 +42,7 @@ export class PetSearchComponent implements OnInit {
   @Output() petSearch: EventEmitter<any> = new EventEmitter<any>();
   @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
   searchText = '';
+  location: string;
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
@@ -100,11 +103,14 @@ export class PetSearchComponent implements OnInit {
   }
 
   // CHANGE location VALUE
-  changeLocation(e) {
-    this.searchForm.get('location').setValue(e.target.value, {
-      searchTerm: this.searchForm.value('location')
-    });
-  }
+
+  // changeLocation(event) {
+  //   this.searchForm.get('location');
+  //   console.log('Pet location: ' + this.searchForm.value);
+  //   this.searchForm.get('location').setValue(e.target.value, {
+  //     searchTerm: this.searchForm.value('location')
+  //   });
+  // }
 
   // GET FORMCONTROLS
   get petId() {
@@ -145,6 +151,13 @@ export class PetSearchComponent implements OnInit {
 
   get sortBy() {
     return this.searchForm.get('sortBy');
+  }
+
+  // GET location VALUE
+  // ToDo: 9/21/2019 Fix parameters and return type. Currently returning undefined
+  changeLocation(): void {
+    this.location = Pet[this.location];
+    console.log(this.location);
   }
 
   // TEMPORARY SUBMIT METHOD, SHOWS GET SEARCH FORM VALUES IF SEARCH FORM IS VALID

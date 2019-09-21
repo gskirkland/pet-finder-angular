@@ -41,8 +41,9 @@
           <h4>Location</h4>
         </label>
         <!--ToDo: 9/16/2019 - Change from [(ngModel)] for filter pipe usage. Deprecated after Angular 6-->
-        <input formControlName="location" class="form-control" (onblur)="changeLocation(onblur)"
-          placeholder="Address, City, State or Zip Code" [(ngModel)]="location" />
+        <!--param for (blur)="changeLocation(location.value)"-->
+        <input formControlName="location" (blur)="changeLocation($event)" id="location" class="form-control"
+          placeholder="Address, City, State or Zip Code" />
       </div>
       <!--searchDistance SELECT-->
       <div class="form-group col-lg-3 col-md-6 order-lg-1">
