@@ -1,6 +1,6 @@
 // COMPONENTS
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Validators, FormGroup, FormControl, AbstractControl } from '@angular/forms';
 // MODELS
 import { Pet } from '../../models/Pet';
 // SERVICES
@@ -37,6 +37,9 @@ export class PetSearchComponent implements OnInit {
   public pets = [];
   // SEARCH TERM
   searchTerm: string;
+  @Output() petSearch: EventEmitter<any> = new EventEmitter<any>();
+  @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
+  searchText = '';
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
@@ -89,6 +92,7 @@ export class PetSearchComponent implements OnInit {
     });
   }
   // CHANGE sortBy VALUE
+  // ToDo: 9/20/2019 Fix lifecycle hook so this will update when other form controls have input values
   changeSortBy(e) {
     this.searchForm.get('sortBy').setValue(e.target.value, {
       onlySelf: true
@@ -112,7 +116,7 @@ export class PetSearchComponent implements OnInit {
   }
 
   // get location() {
-  //   return this.searchForm.get('location');
+  // return this.searchForm.get('location');
   // }
 
   get searchDistance() {
@@ -172,6 +176,11 @@ export class PetSearchComponent implements OnInit {
       // ToDo: 9/12/2019 Sort by distance from user's location.
       return this.pets.sort((a, b) => (a.location > b.location) ? 1 : ((b.location > a.location) ? -1 : 0));
     }
+  }
+  // Search Filter
+  search(filters: any): void {
+    Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
+    this.groupFilters.emit(filters);
   }
 
   ngOnInit() {
