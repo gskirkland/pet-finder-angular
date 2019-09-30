@@ -1,14 +1,16 @@
-.container-fluid {
-  background-color: #03ad28;
-  height: 100px;
+#formContainer {
+  background-color: #22804c;
+  margin-top: auto;
+}
+
+#reportBtn {
+  background-color: orange;
+  color: #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 20%;
 }
 
 div {
   height: 100%;
-
-  .btn {
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 20%;
-  }
 }
