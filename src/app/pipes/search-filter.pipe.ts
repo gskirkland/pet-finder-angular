@@ -5,7 +5,6 @@ import { AbstractControl } from '@angular/forms';
 @Pipe({
   name: 'searchFilter'
 })
-// ToDo: 9/20/2019 Fix SearchFilterPipe
 // export class SearchFilterPipe implements PipeTransform {
 //   transform(sortedPets: any[], value: string, prop: string): any[] {
 //     if (!sortedPets) return [];
@@ -16,7 +15,10 @@ import { AbstractControl } from '@angular/forms';
 //   }
 // }
 
-
+// ToDo: 9/30/2019 NEEDS NEW ARRAY TO HOLD RESULTS, NEEDS SEARCHFORM OBJECT HOLDING KEY:VALUE PAIRS OF ALL INPUTS,
+// NEEDS EITHER forEach() or filter() METHODS TO LOOP THROUGH EACH PROPERTY IN, NEEDS TO COMPARE SEARCHFORM INPUT
+// PROPERTY VALUES AGAINST PET[] DATA FROM STORED DATA VALUES AND IF COMPARISON = true ADD TO RESULTS ARRAY, RETURN
+// THE NEW RESULTS ARRAY
 
 export class SearchFilterPipe implements PipeTransform {
   transform(sortedPets: Pet[], location: string): Pet[] {
