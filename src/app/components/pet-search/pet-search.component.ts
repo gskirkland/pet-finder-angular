@@ -16,11 +16,11 @@ import { Key } from 'protractor';
   styleUrls: ['./pet-search.component.scss']
 })
 export class PetSearchComponent implements OnInit {
-  // petType SELECT VALUES
+  // INIT petType SELECT VALUES
   petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
-  // searchDistance SELECT VALUES
+  // INIT searchDistance SELECT VALUES
   searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles'];
-  // addedDate SELECT VALUES
+  // INIT addedDate SELECT VALUES
   addedDates = [
     'Last Day',
     'Last 3 Days',
@@ -29,39 +29,38 @@ export class PetSearchComponent implements OnInit {
     'Last Month',
     'Any Time'
   ];
-  // sortBy SELECT VALUES
+  // INIT sortBy SELECT VALUES
   sortBySelections = ['Most Recent', 'Distance'];
-  // DEFAULT VALUE OF SUBMIT EVENT
+  // INIT DEFAULT VALUE OF SUBMIT EVENT
   submitted = false;
   // INIT ERRORMSG
   public errorMsg = '';
-  // INIT PET LIST
+  // DECLARE PET LIST
   public pets = [];
-  // SEARCH TERM
-  searchTerm: string;
+  // DECLARE searchForm FORMGROUP
+  searchForm: FormGroup;
+
   @Output() petSearch: EventEmitter<any> = new EventEmitter<any>();
   @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
-  searchText = '';
-  location: string;
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
-
-  searchForm = new FormGroup({
-    petId: new FormControl('', [Validators.required]),
-    petType: new FormControl(this.petTypes[0]),
-    location: new FormControl(''),
-    searchDistance: new FormControl(this.searchDistances[0], [Validators.required]),
-    petStatus: new FormGroup({
-      lostCheck: new FormControl(true),
-      foundStrayCheck: new FormControl(true),
-      reunitedCheck: new FormControl(false),
-    }, requireCheckBoxesToBeCheckedValidator()),
-    petGender: new FormControl('male'),
-    addedDate: new FormControl(this.addedDates[0], [Validators.required]),
-    sortBy: new FormControl(this.sortBySelections[0], [Validators.required]),
-  });
-
+  ngOnInit() {
+    this.searchForm = new FormGroup({
+      petId: new FormControl('', [Validators.required]),
+      petType: new FormControl(this.petTypes[0]),
+      location: new FormControl(''),
+      searchDistance: new FormControl(this.searchDistances[0], [Validators.required]),
+      petStatus: new FormGroup({
+        lostCheck: new FormControl(true),
+        foundStrayCheck: new FormControl(true),
+        reunitedCheck: new FormControl(false),
+      }, requireCheckBoxesToBeCheckedValidator()),
+      petGender: new FormControl('male'),
+      addedDate: new FormControl(this.addedDates[0], [Validators.required]),
+      sortBy: new FormControl(this.sortBySelections[0], [Validators.required]),
+    });
+  }
   // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
   //  onSubmit() {
   //    this.submitted = true;
@@ -155,10 +154,10 @@ export class PetSearchComponent implements OnInit {
 
   // GET location VALUE
   // ToDo: 9/21/2019 Fix parameters and return type. Currently returning undefined
-  changeLocation(): void {
-    this.location = Pet[this.location];
-    console.log(this.location);
-  }
+  //  changeLocation(): void {
+  //    this.location = Pet[this.location];
+  //    console.log(this.location); // SHOW ON CONSOLE FORMCONTROL location's VALUE
+  //  }
 
   // TEMPORARY SUBMIT METHOD, SHOWS GET SEARCH FORM VALUES IF SEARCH FORM IS VALID
   onSubmit(event) {
@@ -166,8 +165,8 @@ export class PetSearchComponent implements OnInit {
     this.submitted = true;
 
     if (this.searchForm.valid) {
-      console.log(this.searchForm.value);
-      this.petService.getPetSearch(this.searchForm.value)
+      console.log(this.searchForm.value); // SHOW ON CONSOLE FORMGROUP searchForm's FORMCONTROL VALUES
+      this.petService.getPetSearch(this.searchForm.value) // TEST FOR HTTP post IF FORMGROUP VALUES ARE RECEIEVED BY SERVER. THIS WILL BE USED FOR ADDING NEW PET OBJECT IN THE report-pet COMPONENT. WILL NOT BE USED IN THIS COMPONENET
         .subscribe(
           response => console.log('Success!', response),
           error => this.errorMsg = error.statusText
@@ -176,7 +175,7 @@ export class PetSearchComponent implements OnInit {
       // GET PET-ITEMS FROM JSON FILE
       this.petService.getPets().subscribe(pets => {
         this.pets = pets;
-        console.log(this.pets);
+        console.log(this.pets); // SHOW ON CONSOLE RETURN VALUE FROM getPets() METHOD FROM pet.service
       });
     }
   }
@@ -186,7 +185,7 @@ export class PetSearchComponent implements OnInit {
     if (this.sortBy.value === 'Most Recent') {
       return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? -1 : ((b.addedDate > a.addedDate) ? 1 : 0));
     } else {
-      // ToDo: 9/12/2019 Sort by distance from user's location.
+      // ToDo: 9/30/2019 Sort by distance from user's location. Currently using to sort by DESCENDING addedDate
       return this.pets.sort((a, b) => (a.location > b.location) ? 1 : ((b.location > a.location) ? -1 : 0));
     }
   }
@@ -196,9 +195,9 @@ export class PetSearchComponent implements OnInit {
     this.groupFilters.emit(filters);
   }
 
-  ngOnInit() {
-    this.petService.getPets()
-      .subscribe(data => this.pets = data);
-  }
+  // ngOnInit() {
+  //  this.petService.getPets()
+  //    .subscribe(data => this.pets = data);
+  // }
 
 }

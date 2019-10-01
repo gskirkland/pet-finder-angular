@@ -1,6 +1,6 @@
 import { PipeTransform, Pipe } from '@angular/core';
 import { Pet } from '../models/Pet';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, FormGroupDirective, FormGroup } from '@angular/forms';
 
 @Pipe({
   name: 'searchFilter'
@@ -21,11 +21,11 @@ import { AbstractControl } from '@angular/forms';
 // THE NEW RESULTS ARRAY
 
 export class SearchFilterPipe implements PipeTransform {
-  transform(sortedPets: Pet[], location: string): Pet[] {
-    if (!sortedPets || !location) {
+  transform(sortedPets: Pet[], searchForm: FormGroup): Pet[] {
+    if (!sortedPets || !searchForm.get('location').value) {
       return sortedPets;
     }
     return sortedPets.filter(pet =>
-      pet.location.toString().toLowerCase().indexOf(location.toString().toLowerCase()) !== -1);
+      pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== -1);
   }
 }

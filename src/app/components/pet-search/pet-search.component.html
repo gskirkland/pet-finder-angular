@@ -42,7 +42,7 @@
         </label>
         <!--ToDo: 9/16/2019 - Change from [(ngModel)] for filter pipe usage. Deprecated after Angular 6-->
         <!--param for (blur)="changeLocation(location.value)"-->
-        <input formControlName="location" (blur)="changeLocation($event)" id="location" class="form-control"
+        <input formControlName="location" id="location" class="form-control"
           placeholder="Address, City, State or Zip Code" />
       </div>
       <!--searchDistance SELECT-->
@@ -141,7 +141,8 @@
 </div>
 <!--SEARCH RESULTS-->
 <ng-container *ngIf="submitted">
-  <app-pet-item *ngFor="let pet of sortedPets | searchFilter:location" [pet]="pet"> </app-pet-item>
+  <app-pet-item *ngFor="let pet of sortedPets | searchFilter:searchForm" [pet]="pet">
+  </app-pet-item>
 </ng-container>
 <!--User modified formcontrol values-->
 {{ searchForm.value | json }}
