@@ -30,7 +30,7 @@ export class PetSearchComponent implements OnInit {
     'Any Time'
   ];
   // INIT sortBy SELECT VALUES
-  sortBySelections = ['Most Recent', 'Distance'];
+  sortBySelections = ['Most Recent', 'Oldest First'];
   // INIT DEFAULT VALUE OF SUBMIT EVENT
   submitted = false;
   // INIT ERRORMSG
@@ -40,126 +40,89 @@ export class PetSearchComponent implements OnInit {
   // DECLARE searchForm FORMGROUP
   searchForm: FormGroup;
 
-  @Output() petSearch: EventEmitter<any> = new EventEmitter<any>();
-  @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
+  // @Output() petSearch: EventEmitter<any> = new EventEmitter<any>();
+  // @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
 
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
   ngOnInit() {
     this.searchForm = new FormGroup({
-      petId: new FormControl('', [Validators.required]),
+      petName: new FormControl(''),
       petType: new FormControl(this.petTypes[0]),
       location: new FormControl(''),
-      searchDistance: new FormControl(this.searchDistances[0], [Validators.required]),
+      searchDistance: new FormControl(this.searchDistances[0]),
       petStatus: new FormGroup({
         lostCheck: new FormControl(true),
         foundStrayCheck: new FormControl(true),
         reunitedCheck: new FormControl(false),
       }, requireCheckBoxesToBeCheckedValidator()),
       petGender: new FormControl('male'),
-      addedDate: new FormControl(this.addedDates[0], [Validators.required]),
-      sortBy: new FormControl(this.sortBySelections[0], [Validators.required]),
+      addedDate: new FormControl(this.addedDates[0]),
+      sortBy: new FormControl(this.sortBySelections[0]),
     });
   }
-  // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
-  //  onSubmit() {
-  //    this.submitted = true;
-  //    this.petService.getPetSearch(this.searchForm.value).subscribe(
-  //      data => console.log('Success!', data),
-  //      error => this.errorMsg = error.statusText
-  //    );
-  //
-  //    // GET PET-ITEMS FROM JSON FILE
-  //    this.petService.getPets().subscribe(pets => {
-  //      this.pets = pets;
-  //    });
-  //  }
 
   // CHANGE petType VALUE
-  changePetType(e) {
-    this.searchForm.get('petType').setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-  // CHANGE searchDistance VALUE
-  changeSearchDistance(e) {
-    this.searchForm.get('searchDistance').setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-  // CHANGE addedDate VALUE
-  changeAddedDate(e) {
-    this.searchForm.get('addedDate').setValue(e.target.value, {
-      onlySelf: true
-    });
-  }
+  // changePetType(e) {
+  //   this.searchForm.get('petType').setValue(e.target.value, {
+  //     onlySelf: true
+  //   });
+  // }
+  // // CHANGE searchDistance VALUE
+  // changeSearchDistance(e) {
+  //   this.searchForm.get('searchDistance').setValue(e.target.value, {
+  //     onlySelf: true
+  //   });
+  // }
+  // // CHANGE addedDate VALUE
+  // changeAddedDate(e) {
+  //   this.searchForm.get('addedDate').setValue(e.target.value, {
+  //     onlySelf: true
+  //   });
+  // }
+
   // CHANGE sortBy VALUE
-  // ToDo: 9/20/2019 Fix lifecycle hook so this will update when other form controls have input values
+  // ToDo: 9/30/2019 Change BUTTON text to 'Update' after 'submitted = true'
   changeSortBy(e) {
     this.searchForm.get('sortBy').setValue(e.target.value, {
       onlySelf: true
     });
   }
 
-  // CHANGE location VALUE
-
-  // changeLocation(event) {
-  //   this.searchForm.get('location');
-  //   console.log('Pet location: ' + this.searchForm.value);
-  //   this.searchForm.get('location').setValue(e.target.value, {
-  //     searchTerm: this.searchForm.value('location')
-  //   });
+  // get petType() {
+  //   return this.searchForm.get('petType');
   // }
-
-  // GET FORMCONTROLS
-  get petId() {
-    return this.searchForm.get('petId');
-  }
-
-  get petType() {
-    return this.searchForm.get('petType');
-  }
 
   // get location() {
   // return this.searchForm.get('location');
   // }
 
-  get searchDistance() {
-    return this.searchForm.get('searchDistance');
-  }
+  // get searchDistance() {
+  //   return this.searchForm.get('searchDistance');
+  // }
 
-  get lostCheck() {
-    return this.searchForm.get('petStatus.lostCheck');
-  }
+  // get lostCheck() {
+  //   return this.searchForm.get('petStatus.lostCheck');
+  // }
 
-  get foundStrayCheck() {
-    return this.searchForm.get('petStatus.foundStrayCheck');
-  }
+  // get foundStrayCheck() {
+  //   return this.searchForm.get('petStatus.foundStrayCheck');
+  // }
 
-  get reunitedCheck() {
-    return this.searchForm.get('petStatus.reunitedCheck');
-  }
+  // get reunitedCheck() {
+  //   return this.searchForm.get('petStatus.reunitedCheck');
+  // }
 
-  get petGender() {
-    return this.searchForm.get('petGender');
-  }
+  // get petGender() {
+  //   return this.searchForm.get('petGender');
+  // }
 
-  get addedDate() {
-    return this.searchForm.get('addedDate');
-  }
+  // get addedDate() {
+  //   return this.searchForm.get('addedDate');
+  // }
 
-  get sortBy() {
-    return this.searchForm.get('sortBy');
-  }
 
-  // GET location VALUE
-  // ToDo: 9/21/2019 Fix parameters and return type. Currently returning undefined
-  //  changeLocation(): void {
-  //    this.location = Pet[this.location];
-  //    console.log(this.location); // SHOW ON CONSOLE FORMCONTROL location's VALUE
-  //  }
-
-  // TEMPORARY SUBMIT METHOD, SHOWS GET SEARCH FORM VALUES IF SEARCH FORM IS VALID
+  // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
   onSubmit(event) {
     event.preventDefault();
     this.submitted = true;
@@ -186,18 +149,20 @@ export class PetSearchComponent implements OnInit {
       return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? -1 : ((b.addedDate > a.addedDate) ? 1 : 0));
     } else {
       // ToDo: 9/30/2019 Sort by distance from user's location. Currently using to sort by DESCENDING addedDate
-      return this.pets.sort((a, b) => (a.location > b.location) ? 1 : ((b.location > a.location) ? -1 : 0));
+      return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? 1 : ((b.addedDate > a.addedDate) ? -1 : 0));
     }
   }
   // Search Filter
-  search(filters: any): void {
-    Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-    this.groupFilters.emit(filters);
-  }
-
-  // ngOnInit() {
-  //  this.petService.getPets()
-  //    .subscribe(data => this.pets = data);
+  // search(filters: any): void {
+  //   Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
+  //   this.groupFilters.emit(filters);
   // }
 
+  // GET searchForm's 'sortBy' VALUE
+  get sortBy() {
+    return this.searchForm.get('sortBy');
+  }
+
+  //  this.petService.getPets()
+  //    .subscribe(data => this.pets = data);
 }

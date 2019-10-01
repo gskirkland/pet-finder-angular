@@ -14,24 +14,25 @@
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit($event)">
     <!--ROW 1-->
     <div class="form-row d-flex justify-content-around pt-md-4 pt-sm-2">
-      <!--PET ID-->
-      <!--ToDo:8/26/2019 Make petId FormControl to petId/petName to give user the choice of which to search by-->
+      <!--PET NAME-->
       <div class="form-group col-lg-3 col-md-6">
-        <label for="petId">
-          <h4>Pet ID or Name</h4>
+        <label for="petName">
+          <h4>Pet Name</h4>
         </label>
-        <input type="text" formControlName="petId" class="form-control" id="petId" placeholder="e.g. 12345" required />
+        <input type="text" formControlName="petName" class="form-control" id="petName" placeholder="Name" />
         <!--INVALID petId VALUE MESSAGE-->
+        <!--
         <div *ngIf="petId.invalid && petId.touched">
           <div class="alert alert-danger">Pet ID or Name is required</div>
         </div>
+        -->
       </div>
       <!--petType SELECT-->
       <div class="form-group col-lg-3 col-md-6">
         <label for="petType">
           <h4>Animal Type</h4>
         </label>
-        <select formControlName="petType" (change)="changePetType($event)" class="custom-select">
+        <select formControlName="petType" class="custom-select">
           <option *ngFor="let petType of petTypes">{{ petType }}</option>
         </select>
       </div>
@@ -40,8 +41,6 @@
         <label for="location">
           <h4>Location</h4>
         </label>
-        <!--ToDo: 9/16/2019 - Change from [(ngModel)] for filter pipe usage. Deprecated after Angular 6-->
-        <!--param for (blur)="changeLocation(location.value)"-->
         <input formControlName="location" id="location" class="form-control"
           placeholder="Address, City, State or Zip Code" />
       </div>
@@ -50,8 +49,7 @@
         <label for="searchDistance">
           <h4>Distance</h4>
         </label>
-        <select formControlName="searchDistance" (change)="changeSearchDistance($event)" class="custom-select"
-          id="searchDistance">
+        <select formControlName="searchDistance" class="custom-select" id="searchDistance">
           <option *ngFor="let searchDistance of searchDistances">{{ searchDistance }}</option>
         </select>
       </div>
@@ -112,7 +110,7 @@
         <label for="addedDate">
           <h4>Found Within</h4>
         </label>
-        <select formControlName="addedDate" (change)="changeAddedDate($event)" id="addedDate" class="custom-select">
+        <select formControlName="addedDate" id="addedDate" class="custom-select">
           <option *ngFor="let addedDate of addedDates">{{ addedDate }}</option>
         </select>
       </div>
@@ -128,11 +126,11 @@
     </div>
     <!--ROW 3-->
     <!--SUBMIT FORM BUTTON-->
+    <!--ToDo: 9/30/2019 Change button text to 'Update' after 'submitted = true'-->
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
-        <button [disabled]='!searchForm.valid' (click)="search(searchForm.value)" class="btn btn-block" type="submit"
-          id="searchBtn">
+        <button [disabled]='!searchForm.valid' class="btn btn-block" type="submit" id="searchBtn">
           Find
         </button>
       </div>

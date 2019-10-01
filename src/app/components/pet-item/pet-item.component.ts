@@ -14,7 +14,7 @@ export class PetItemComponent implements OnInit/*, OnChanges*/ {
   // @Input() searchByKeyword: string;
   pets: any[] = [];
   // filteredPets: any[] = [];
-  constructor(private petService: PetService, private ref: ChangeDetectorRef) { }  // ToDo: 9/20/2019 Fix 'ref'
+  constructor(private petService: PetService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.petService.getPetSearch(this.pet);

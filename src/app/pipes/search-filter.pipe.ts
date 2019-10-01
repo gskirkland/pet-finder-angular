@@ -27,5 +27,7 @@ export class SearchFilterPipe implements PipeTransform {
     }
     return sortedPets.filter(pet =>
       pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== -1);
+    // return sortedPets.filter(pet =>
+    //   pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== //-1);
   }
 }
