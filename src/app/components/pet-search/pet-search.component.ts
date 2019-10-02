@@ -20,6 +20,8 @@ export class PetSearchComponent implements OnInit {
   petTypes = ['All Species', 'Cat', 'Dog', 'Other'];
   // INIT searchDistance SELECT VALUES
   searchDistances = ['10 miles', '25 miles', '50 miles', '100 miles'];
+  // INIT petGender VALUES
+  petGenders = ['Male', 'Female'];
   // INIT addedDate SELECT VALUES
   addedDates = [
     'Last Day',
@@ -56,7 +58,7 @@ export class PetSearchComponent implements OnInit {
         foundStrayCheck: new FormControl(true),
         reunitedCheck: new FormControl(false),
       }, requireCheckBoxesToBeCheckedValidator()),
-      petGender: new FormControl('male'),
+      petGender: new FormControl(this.petGenders[0]),
       addedDate: new FormControl(this.addedDates[0]),
       sortBy: new FormControl(this.sortBySelections[0]),
     });
@@ -81,6 +83,11 @@ export class PetSearchComponent implements OnInit {
   //   });
   // }
 
+  // SET petGender VALUE
+  radioChangeHandler(e) {
+    this.searchForm.get('petGender').setValue(e.target.value);
+  }
+
   // CHANGE sortBy VALUE
   // ToDo: 9/30/2019 Change BUTTON text to 'Update' after 'submitted = true'
   changeSortBy(e) {
@@ -91,10 +98,6 @@ export class PetSearchComponent implements OnInit {
 
   // get petType() {
   //   return this.searchForm.get('petType');
-  // }
-
-  // get location() {
-  // return this.searchForm.get('location');
   // }
 
   // get searchDistance() {
@@ -113,14 +116,9 @@ export class PetSearchComponent implements OnInit {
   //   return this.searchForm.get('petStatus.reunitedCheck');
   // }
 
-  // get petGender() {
-  //   return this.searchForm.get('petGender');
-  // }
-
   // get addedDate() {
   //   return this.searchForm.get('addedDate');
   // }
-
 
   // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
   onSubmit(event) {
@@ -162,7 +160,4 @@ export class PetSearchComponent implements OnInit {
   get sortBy() {
     return this.searchForm.get('sortBy');
   }
-
-  //  this.petService.getPets()
-  //    .subscribe(data => this.pets = data);
 }
