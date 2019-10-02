@@ -14,7 +14,3 @@ Run `ng serve` from a new terminal for a dev server. Navigate to `http://localho
 
 Fill out form-controls and click Find button.
 Form-control values will POST to development API, and values posted can be seen in either your browser's development console or the terminal running `node server`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
