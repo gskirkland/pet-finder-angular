@@ -1,14 +1,12 @@
 // COMPONENTS
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Validators, FormGroup, FormControl, AbstractControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 // MODELS
 import { Pet } from '../../models/Pet';
 // SERVICES
 import { PetService } from '../../services/pet.service';
 // CUSTOM VALIDATOR
 import { requireCheckBoxesToBeCheckedValidator } from '../../validators/custom.validators';
-import { filter } from 'rxjs/operators';
-import { Key } from 'protractor';
 
 @Component({
   selector: 'app-pet-search',
@@ -42,9 +40,6 @@ export class PetSearchComponent implements OnInit {
   // DECLARE searchForm FORMGROUP
   searchForm: FormGroup;
 
-  // @Output() petSearch: EventEmitter<any> = new EventEmitter<any>();
-  // @Output() groupFilters: EventEmitter<any> = new EventEmitter<any>();
-
   // INJECT INSTANCE OF PETSERVICE
   constructor(private petService: PetService) { }
   ngOnInit() {
@@ -64,25 +59,6 @@ export class PetSearchComponent implements OnInit {
     });
   }
 
-  // CHANGE petType VALUE
-  // changePetType(e) {
-  //   this.searchForm.get('petType').setValue(e.target.value, {
-  //     onlySelf: true
-  //   });
-  // }
-  // // CHANGE searchDistance VALUE
-  // changeSearchDistance(e) {
-  //   this.searchForm.get('searchDistance').setValue(e.target.value, {
-  //     onlySelf: true
-  //   });
-  // }
-  // // CHANGE addedDate VALUE
-  // changeAddedDate(e) {
-  //   this.searchForm.get('addedDate').setValue(e.target.value, {
-  //     onlySelf: true
-  //   });
-  // }
-
   // SET petGender VALUE
   radioChangeHandler(e) {
     this.searchForm.get('petGender').setValue(e.target.value);
@@ -95,30 +71,6 @@ export class PetSearchComponent implements OnInit {
       onlySelf: true
     });
   }
-
-  // get petType() {
-  //   return this.searchForm.get('petType');
-  // }
-
-  // get searchDistance() {
-  //   return this.searchForm.get('searchDistance');
-  // }
-
-  // get lostCheck() {
-  //   return this.searchForm.get('petStatus.lostCheck');
-  // }
-
-  // get foundStrayCheck() {
-  //   return this.searchForm.get('petStatus.foundStrayCheck');
-  // }
-
-  // get reunitedCheck() {
-  //   return this.searchForm.get('petStatus.reunitedCheck');
-  // }
-
-  // get addedDate() {
-  //   return this.searchForm.get('addedDate');
-  // }
 
   // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
   onSubmit(event) {
@@ -150,11 +102,6 @@ export class PetSearchComponent implements OnInit {
       return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? 1 : ((b.addedDate > a.addedDate) ? -1 : 0));
     }
   }
-  // Search Filter
-  // search(filters: any): void {
-  //   Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-  //   this.groupFilters.emit(filters);
-  // }
 
   // GET searchForm's 'sortBy' VALUE
   get sortBy() {
