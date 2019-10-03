@@ -50,7 +50,7 @@ export class PetSearchComponent implements OnInit {
       searchDistance: new FormControl(this.searchDistances[0]),
       petStatus: new FormGroup({
         lostCheck: new FormControl(true),
-        foundStrayCheck: new FormControl(true),
+        foundStrayCheck: new FormControl(false),
         reunitedCheck: new FormControl(false),
       }, requireCheckBoxesToBeCheckedValidator()),
       petGender: new FormControl(this.petGenders[0]),
