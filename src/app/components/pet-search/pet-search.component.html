@@ -129,7 +129,8 @@
     <div class="form-row d-flex justify-content-around">
       <div class="col-md-6 order-sm-1"></div>
       <div class="col-md-6 pb-2 order-sm-2">
-        <button [disabled]='!searchForm.valid' class="btn btn-block" type="submit" id="searchBtn">
+        <button [disabled]='!searchForm.valid' class="btn btn-block" (click)="setBtnText($event.target, 'Update')"
+          type="submit" id="searchBtn">
           Find
         </button>
       </div>

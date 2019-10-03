@@ -72,6 +72,17 @@ export class PetSearchComponent implements OnInit {
     });
   }
 
+  // CHANGE SEARCH BUTTON TEXT
+  setBtnText(element, text) {
+    element.textContent = text;
+  }
+
+  // RESET SEARCH FORM
+  // resetForm() {
+  //   this.searchForm.reset(this.searchForm.root);
+  //   (this as { submitted: boolean }).submitted = false;
+  // }
+
   // GET SEARCH FORM VALUES FROM localhost:3000. DISPLAYS SEARCH RESULTS FROM LOCAL JSON FILE
   onSubmit(event) {
     event.preventDefault();
