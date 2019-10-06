@@ -65,7 +65,6 @@ export class PetSearchComponent implements OnInit {
   }
 
   // CHANGE sortBy VALUE
-  // ToDo: 9/30/2019 Change BUTTON text to 'Update' after 'submitted = true'
   changeSortBy(e) {
     this.searchForm.get('sortBy').setValue(e.target.value, {
       onlySelf: true
