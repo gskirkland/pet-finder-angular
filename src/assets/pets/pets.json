@@ -4,9 +4,26 @@
     "petName": "Bessie",
     "petType": "Dog",
     "location": "Cleveland, TN 37312",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Female",
     "addedDate": "2019-07-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -17,9 +34,26 @@
     "petName": "Gidget",
     "petType": "Dog",
     "location": "Tellico Plains, TN 37385",
-    "lostCheck": false,
-    "foundStrayCheck": true,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": 200,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Female",
     "addedDate": "2019-08-26T08:25:43-05:00",
     "imageUrl": "https://i.imgur.com/N07faG2.jpg?2",
@@ -30,9 +64,26 @@
     "petName": "Foxy",
     "petType": "Cat",
     "location": "Chattanooga, TN",
-    "lostCheck": false,
-    "foundStrayCheck": false,
-    "reunitedCheck": true,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": 300,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": true
+      }
+    ],
     "petGender": "Female",
     "addedDate": "2019-09-10T01:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -43,9 +94,26 @@
     "petName": "Gidget",
     "petType": "Ferret",
     "location": "37312",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-09-02T10:25:43-05:00",
     "imageUrl": "https://i.imgur.com/N07faG2.jpg?2",
@@ -56,9 +124,26 @@
     "petName": "Donut",
     "petType": "Dog",
     "location": "Nashville, TN",
-    "lostCheck": false,
-    "foundStrayCheck": true,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": 200,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-09-01T11:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -69,9 +154,26 @@
     "petName": "Gidget",
     "petType": "Cat",
     "location": "Cleveland, TN 37312",
-    "lostCheck": false,
-    "foundStrayCheck": false,
-    "reunitedCheck": true,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": 300,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": true
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-09-04T17:25:43-05:00",
     "imageUrl": "https://i.imgur.com/N07faG2.jpg?2",
@@ -82,9 +184,26 @@
     "petName": "Bessie",
     "petType": "Cat",
     "location": "Dalton, GA",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-08-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -95,9 +214,26 @@
     "petName": "Blackie",
     "petType": "Cat",
     "location": "Englewood, TN",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-09-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -108,9 +244,26 @@
     "petName": "Bessie",
     "petType": "Dog",
     "location": "Cleveland, TN 37312",
-    "lostCheck": false,
-    "foundStrayCheck": true,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": 200,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-06-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -121,9 +274,26 @@
     "petName": "Tweety",
     "petType": "Bird",
     "location": "Cleveland, TN 37312",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-05-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -134,9 +304,26 @@
     "petName": "Bessie",
     "petType": "Dog",
     "location": "Cleveland, TN 37312",
-    "lostCheck": false,
-    "foundStrayCheck": false,
-    "reunitedCheck": true,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": 300,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": true
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-08-04T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -147,9 +334,26 @@
     "petName": "Tweety",
     "petType": "Bird",
     "location": "Cleveland, TN 37312",
-    "lostCheck": false,
-    "foundStrayCheck": true,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": 200,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-05-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -160,9 +364,26 @@
     "petName": "Tweety",
     "petType": "Bird",
     "location": "Cleveland, TN 37312",
-    "lostCheck": false,
-    "foundStrayCheck": false,
-    "reunitedCheck": true,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": 300,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": true
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-05-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -173,9 +394,26 @@
     "petName": "Tweety",
     "petType": "Bird",
     "location": "Cleveland, TN 37312",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Female",
     "addedDate": "2019-05-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -186,9 +424,26 @@
     "petName": "Tweety",
     "petType": "Bird",
     "location": "Cleveland, TN 37312",
-    "lostCheck": false,
-    "foundStrayCheck": false,
-    "reunitedCheck": true,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": 300,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": true
+      }
+    ],
     "petGender": "Female",
     "addedDate": "2019-05-05T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -199,9 +454,26 @@
     "petName": "Bessie",
     "petType": "Dog",
     "location": "Cleveland, TN 37312",
-    "lostCheck": true,
-    "foundStrayCheck": false,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": 100,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": false
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-08-10T23:25:43-05:00",
     "imageUrl": "https://i.imgur.com/4vUIq1G.jpg?2",
@@ -212,9 +484,26 @@
     "petName": "Gidget",
     "petType": "Cat",
     "location": "Tellico Plains, TN 37385",
-    "lostCheck": false,
-    "foundStrayCheck": true,
-    "reunitedCheck": false,
+    "petStatus": [
+      {
+        "id": null,
+        "name": "lostCheck",
+        "value": "lostCheck",
+        "selected": false
+      },
+      {
+        "id": 200,
+        "name": "foundStrayCheck",
+        "value": "foundStrayCheck",
+        "selected": true
+      },
+      {
+        "id": null,
+        "name": "reunitedCheck",
+        "value": "reunitedCheck",
+        "selected": false
+      }
+    ],
     "petGender": "Male",
     "addedDate": "2019-08-26T08:25:43-05:00",
     "imageUrl": "https://i.imgur.com/N07faG2.jpg?2",

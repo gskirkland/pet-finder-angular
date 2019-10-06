@@ -1,12 +1,14 @@
 // COMPONENTS
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 // MODELS
 import { Pet } from '../../models/Pet';
 // SERVICES
 import { PetService } from '../../services/pet.service';
 // CUSTOM VALIDATOR
 import { requireCheckBoxesToBeCheckedValidator } from '../../validators/custom.validators';
+import { IPetStatus } from 'src/app/models/IPetStatus';
+
 
 @Component({
   selector: 'app-pet-search',
@@ -39,26 +41,56 @@ export class PetSearchComponent implements OnInit {
   public pets = [];
   // DECLARE searchForm FORMGROUP
   searchForm: FormGroup;
+  // petStatus array
+  public petStatuses: IPetStatus[] = [
+    {
+      id: 100,
+      name: 'Lost',
+      value: 'lostCheck',
+      selected: true,
+    },
+    {
+      id: 200,
+      name: 'Found',
+      value: 'foundStrayCheck',
+      selected: false
+    },
+    {
+      id: 300,
+      name: 'Reunited',
+      value: 'reunitedCheck',
+      selected: false
+    }
+  ];
 
-  // INJECT INSTANCE OF PETSERVICE
-  constructor(private petService: PetService) { }
+  // INJECT INSTANCE OF PETSERVICE and FORMBUILDER
+  constructor(private petService: PetService, private fb: FormBuilder) { }
   ngOnInit() {
-    this.searchForm = new FormGroup({
-      petName: new FormControl(''),
-      petType: new FormControl(this.petTypes[0]),
-      location: new FormControl(''),
-      searchDistance: new FormControl(this.searchDistances[0]),
-      petStatus: new FormGroup({
-        lostCheck: new FormControl(true),
-        foundStrayCheck: new FormControl(false),
-        reunitedCheck: new FormControl(false),
-      }, requireCheckBoxesToBeCheckedValidator()),
-      petGender: new FormControl(this.petGenders[0]),
-      addedDate: new FormControl(this.addedDates[0]),
-      sortBy: new FormControl(this.sortBySelections[0]),
+    this.searchForm = this.fb.group({
+      petName: [''],
+      petType: [this.petTypes[0]],
+      location: [''],
+      searchDistance: [this.searchDistances[0]],
+      petGender: [this.petGenders[0]],
+      addedDate: [this.addedDates[0]],
+      sortBy: [this.sortBySelections[0]],
+      petStatus: this.fb.array([], requireCheckBoxesToBeCheckedValidator())
+    });
+
+    this.addCheckboxes();
+
+  }
+  // ADD CHECKBOXES TO SEARCHFORM
+  private addCheckboxes() {
+    this.petStatuses.forEach((name, i) => {
+      const control = new FormControl(i === 0);
+      (this.searchForm.controls.petStatus as FormArray).push(control);
     });
   }
-
+  // GET petStatus FORMARRAY
+  get petStatus() {
+    return this.searchForm.get('petStatus') as FormArray;
+  }
   // SET petGender VALUE
   radioChangeHandler(e) {
     this.searchForm.get('petGender').setValue(e.target.value);
@@ -86,6 +118,11 @@ export class PetSearchComponent implements OnInit {
   onSubmit(event) {
     event.preventDefault();
     this.submitted = true;
+    // GET SELECTED petStatus CHECKBOXES
+    const selectedPetStatus = this.searchForm.value.petStatus
+      .map((v, i) => v ? this.petStatuses[i].id : null)
+      .filter(v => v !== null);
+    console.log(selectedPetStatus);
 
     if (this.searchForm.valid) {
       console.log(this.searchForm.value); // SHOW ON CONSOLE FORMGROUP searchForm's FORMCONTROL VALUES

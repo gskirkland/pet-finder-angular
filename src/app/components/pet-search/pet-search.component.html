@@ -56,34 +56,16 @@
     </div>
     <!--ROW 2-->
     <div class="form-row d-flex justify-content-around">
-      <!--petStatus CHECKBOX GROUP-->
-      <div formGroupName="petStatus" class="form-group col-md-3 col-6">
-
+      <!--petStatus CHECKBOX ARRAY-->
+      <div formArrayName="petStatus" class="col-md-3 col-6">
         <h4>
           <label for="petStatusLabel" id="petStatusLabel">Pet Status</label>
         </h4>
-        <!--CHECKBOX 1-->
-        <div class="form-check">
-          <input type="checkbox" formControlName="lostCheck" class="form-check-input" id="lostCheck" />
-          <label class="form-check-label" for="lostCheck">
-            Lost
-          </label>
+        <div *ngFor="let petStatusInput of petStatus.controls; let i=index;">
+          <input type="checkbox" [formControlName]="i">
+          {{petStatuses[i].name}}
         </div>
-        <!--CHECKBOX 2-->
-        <div class="form-check">
-          <input type="checkbox" formControlName="foundStrayCheck" class="form-check-input" id="foundStrayCheck" />
-          <label class="form-check-label" for="foundStrayCheck">
-            Found/Stray
-          </label>
-        </div>
-        <!--CHECKBOX 3-->
-        <div class="form-check">
-          <input type="checkbox" formControlName="reunitedCheck" class="form-check-input" id="reunitedCheck" />
-          <label class="form-check-label" for="reunitedCheck">
-            Reunited
-          </label>
-        </div>
-        <!--INVALID CHECKBOX MESSAGE-->
+        <!--INVALID CHECKBOX SELECTION-->
         <div class="alert alert-danger" *ngIf="searchForm.controls['petStatus'].errors ?.requireOneCheckBoxToBeChecked">
           At
           least
@@ -91,6 +73,33 @@
           required to check
         </div>
       </div>
+      <!--
+        <div class="form-check">
+          <input type="checkbox" formControlName="lostCheck" class="form-check-input" id="lostCheck" />
+          <label class="form-check-label" for="lostCheck">
+            Lost
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" formControlName="foundStrayCheck" class="form-check-input" id="foundStrayCheck" />
+          <label class="form-check-label" for="foundStrayCheck">
+            Found/Stray
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" formControlName="reunitedCheck" class="form-check-input" id="reunitedCheck" />
+          <label class="form-check-label" for="reunitedCheck">
+            Reunited
+          </label>
+        </div>
+        <div class="alert alert-danger" *ngIf="searchForm.controls['petStatus'].errors ?.requireOneCheckBoxToBeChecked">
+          At
+          least
+          one checkbox is
+          required to check
+        </div>
+      </div>
+    -->
       <!--petGender RADIO BUTTONS-->
       <div class="form-group col-md-3 col-6">
         <h4>
