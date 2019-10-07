@@ -39,8 +39,8 @@ export class PetSearchComponent implements OnInit {
   public errorMsg = '';
   // DECLARE PET LIST
   public pets = [];
-  // DECLARE PROPERTY TO HOLD SELECTED CHECKBOXES
-  public selectedPetStatus = [];
+  // DECLARE PROPERTY TO HOLD checked CHECKBOXES
+  public checkedPetStatus = [];
 
   // DECLARE searchForm FORMGROUP
   searchForm: FormGroup;
@@ -50,19 +50,19 @@ export class PetSearchComponent implements OnInit {
       id: 100,
       name: 'Lost',
       value: 'lostCheck',
-      selected: true,
+      checked: true,
     },
     {
       id: 200,
       name: 'Found',
       value: 'foundStrayCheck',
-      selected: false
+      checked: false
     },
     {
       id: 300,
       name: 'Reunited',
       value: 'reunitedCheck',
-      selected: false
+      checked: false
     }
   ];
 
@@ -121,11 +121,11 @@ export class PetSearchComponent implements OnInit {
   onSubmit(event) {
     event.preventDefault();
     this.submitted = true;
-    // GET SELECTED petStatus CHECKBOXES
-    this.selectedPetStatus = this.searchForm.value.petStatus
+    // GET checked petStatus CHECKBOXES
+    this.checkedPetStatus = this.searchForm.value.petStatus
       .map((v, i) => v ? this.petStatuses[i].id : null)
       .filter(v => v !== null);
-    console.log(this.selectedPetStatus);
+    console.log(this.checkedPetStatus);
 
     if (this.searchForm.valid) {
       console.log(this.searchForm.value); // SHOW ON CONSOLE FORMGROUP searchForm's FORMCONTROL VALUES

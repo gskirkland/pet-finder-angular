@@ -16,9 +16,9 @@ export class SearchFilterPipe implements PipeTransform {
         .filter(pet => pet.petName.toString().toLowerCase().indexOf(searchForm.get('petName').value.toString().toLowerCase()) !== -1)
         .filter(pet => pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== -1)
         // ToDo: 10/07/2019 Fix MULTIPLE checkbox = true value filters
-        .filter(pet => pet.petStatus[0].selected === true)
-        // .filter(pet => pet.petStatus[1].selected === true)
-        // .filter(pet => pet.petStatus[2].selected === true)
+        .filter(pet => pet.petStatus[0].checked === true)
+        // .filter(pet => pet.petStatus[1].checked === true)
+        // .filter(pet => pet.petStatus[2].checked === true)
         .filter(pet => pet.petGender.toString().indexOf(searchForm.get('petGender').value.toString()) !== -1);
       /*
       sortedPets.forEach(, function(value, key) {
@@ -34,9 +34,9 @@ export class SearchFilterPipe implements PipeTransform {
         .filter(pet => pet.petName.toString().toLowerCase().indexOf(searchForm.get('petName').value.toString().toLowerCase()) !== -1)
         .filter(pet => pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== -1)
         // ToDo: 10/07/2019 Fix MULTIPLE checkbox = true value filters
-        .filter(pet => pet.petStatus[0].selected === true)
-        // .filter(pet => pet.petStatus[1].selected === true)
-        // .filter(pet => pet.petStatus[2].selected === true)
+        .filter(pet => pet.petStatus[0].checked === true)
+        // .filter(pet => pet.petStatus[1].checked === true)
+        // .filter(pet => pet.petStatus[2].checked === true)
         .filter(pet => pet.petGender.toString().indexOf(searchForm.get('petGender').value.toString()) !== -1);
       return filteredPets;
     } /*SHOW DOGS*/ else if (searchForm.get('petType').value.toString() === 'Dog') {
@@ -45,9 +45,9 @@ export class SearchFilterPipe implements PipeTransform {
         .filter(pet => pet.petName.toString().toLowerCase().indexOf(searchForm.get('petName').value.toString().toLowerCase()) !== -1)
         .filter(pet => pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== -1)
         // ToDo: 10/07/2019 Fix MULTIPLE checkbox = true value filters
-        .filter(pet => pet.petStatus[0].selected === true)
-        // .filter(pet => pet.petStatus[1].selected === true)
-        // .filter(pet => pet.petStatus[2].selected === true)
+        .filter(pet => pet.petStatus[0].checked === true)
+        // .filter(pet => pet.petStatus[1].checked === true)
+        // .filter(pet => pet.petStatus[2].checked === true)
         .filter(pet => pet.petGender.toString().indexOf(searchForm.get('petGender').value.toString()) !== -1);
       return filteredPets;
     } /*DO NOT SHOW CATS OR DOGS*/ else if (searchForm.get('petType').value.toString() === 'Other') {
@@ -57,9 +57,9 @@ export class SearchFilterPipe implements PipeTransform {
         .filter(pet => pet.petName.toString().toLowerCase().indexOf(searchForm.get('petName').value.toString().toLowerCase()) !== -1)
         .filter(pet => pet.location.toString().toLowerCase().indexOf(searchForm.get('location').value.toString().toLowerCase()) !== -1)
         // ToDo: 10/07/2019 Fix MULTIPLE checkbox = true value filters
-        .filter(pet => pet.petStatus[0].selected === true)
-        // .filter(pet => pet.petStatus[1].selected === true)
-        // .filter(pet => pet.petStatus[2].selected === true)
+        .filter(pet => pet.petStatus[0].checked === true)
+        // .filter(pet => pet.petStatus[1].checked === true)
+        // .filter(pet => pet.petStatus[2].checked === true)
         .filter(pet => pet.petGender.toString().indexOf(searchForm.get('petGender').value.toString()) !== -1);
       return filteredPets;
     }

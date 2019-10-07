@@ -10,7 +10,7 @@ import { Pet } from 'src/app/models/Pet';
 })
 export class PetItemComponent implements OnInit {
   @Input() pet: Pet;
-  @Input() selectedPetStatus;
+  @Input() checkedPetStatus;
   // @Input() groupFilters: any; // ToDo: 9/20/2019 Fix 'type'
   // @Input() searchByKeyword: string;
   pets: any[] = [];
@@ -20,7 +20,7 @@ export class PetItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.petService.getPetSearch(this.pet);
-    console.log(this.selectedPetStatus);
+    console.log(this.checkedPetStatus);
 
     this.petStatusChecked = this.filterChecked();
 
@@ -28,10 +28,11 @@ export class PetItemComponent implements OnInit {
   }
 
   filterChecked() {
-    if (this.pet.petStatus.length > 0 && this.selectedPetStatus[0] === 100) {
+    if (this.pet.petStatus.length > 0 && this.checkedPetStatus[0] === 100) {
       return this.petStatusChecked = this.pet.petStatus
         .filter((pet, index: 0) => this.pet.petStatus[0].id !== null);
-    } if (this.pet.petStatus.length > 0 && this.selectedPetStatus[0] === 200) {
+    }
+    if (this.pet.petStatus.length > 0 && this.checkedPetStatus[0] === 200) {
       return this.petStatusChecked = this.pet.petStatus
         .filter((pet, index: 1) => this.pet.petStatus[1].id !== null);
     } else {

@@ -148,7 +148,7 @@
 <!--SEARCH RESULTS-->
 <ng-container *ngIf="submitted">
   <app-pet-item *ngFor="let pet of sortedPets | searchFilter:searchForm" [pet]="pet"
-    [selectedPetStatus]="selectedPetStatus">
+    [checkedPetStatus]="checkedPetStatus">
   </app-pet-item>
 </ng-container>
 <!--User modified formcontrol values-->

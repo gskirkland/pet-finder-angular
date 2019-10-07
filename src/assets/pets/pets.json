@@ -9,19 +9,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Female",
@@ -39,19 +39,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 200,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Female",
@@ -69,19 +69,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 300,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": true
+        "checked": true
       }
     ],
     "petGender": "Female",
@@ -99,19 +99,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -129,19 +129,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 200,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -159,19 +159,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 300,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": true
+        "checked": true
       }
     ],
     "petGender": "Male",
@@ -189,19 +189,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -219,19 +219,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -249,19 +249,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 200,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -279,19 +279,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -309,19 +309,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 300,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": true
+        "checked": true
       }
     ],
     "petGender": "Male",
@@ -339,19 +339,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 200,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -369,19 +369,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 300,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": true
+        "checked": true
       }
     ],
     "petGender": "Male",
@@ -399,19 +399,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Female",
@@ -429,19 +429,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 300,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": true
+        "checked": true
       }
     ],
     "petGender": "Female",
@@ -459,19 +459,19 @@
         "id": 100,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
@@ -489,19 +489,19 @@
         "id": null,
         "name": "lostCheck",
         "value": "lostCheck",
-        "selected": false
+        "checked": false
       },
       {
         "id": 200,
         "name": "foundStrayCheck",
         "value": "foundStrayCheck",
-        "selected": true
+        "checked": true
       },
       {
         "id": null,
         "name": "reunitedCheck",
         "value": "reunitedCheck",
-        "selected": false
+        "checked": false
       }
     ],
     "petGender": "Male",
