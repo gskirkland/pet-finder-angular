@@ -21,22 +21,22 @@
             </strong>
           </div>
         </div>
-        <!--ToDo: 10/6/2019 Not filtering by selected checkbox. Add filter pipe to match selected checkbox with pets in database.-->
+        <!--ToDo: 10/07/2019 Fix filter pipe to work for found and reunited petStatus values-->
         <!--SHOW LOST BADGE-->
         <div class="row" id="status-petid-container">
-          <h5 *ngIf="pet.petStatus[0].id !== null">
+          <h5 *ngIf="pet.petStatus[0].id === 100">
             <!--SHOW petId-->
             <span class="badge badge-pill badge-danger">Lost</span>
             PET ID: {{ pet.petId }}
           </h5>
           <!--SHOW FOUND BADGE-->
-          <h5 *ngIf="pet.petStatus[1].id !== null">
+          <h5 *ngIf="pet.petStatus[1].id === 200">
             <!--SHOW petId-->
             <span class="badge badge-pill" id="found-badge">Found</span>
             PET ID: {{ pet.petId }}
           </h5>
           <!--SHOW REUNITED BADGE-->
-          <h5 *ngIf="pet.petStatus[2].id !== null">
+          <h5 *ngIf="pet.petStatus[2].id === 300">
             <!--SHOW petId-->
             <span class="badge badge-pill badge-success">Reunited</span>
             PET ID: {{ pet.petId }}
