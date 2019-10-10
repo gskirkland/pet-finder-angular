@@ -11,41 +11,23 @@ import { Pet } from 'src/app/models/Pet';
 export class PetItemComponent implements OnInit {
   @Input() pet: Pet;
   @Input() checkedPetStatus;
-  // @Input() groupFilters: any; // ToDo: 9/20/2019 Fix 'type'
-  // @Input() searchByKeyword: string;
   pets: any[] = [];
-  petStatusChecked: any = [];
-  // filteredPets: any[] = [];
-  constructor(private petService: PetService) { }
+  petStatusChecked = [];
+  constructor() { }
 
   ngOnInit(): void {
-    this.petService.getPetSearch(this.pet);
     console.log(this.checkedPetStatus);
 
-    this.petStatusChecked = this.filterChecked();
+    this.filterChecked();
 
-    console.log(this.petStatusChecked);
   }
 
   filterChecked() {
-    if (this.pet.petStatus.length > 0 && this.checkedPetStatus[0] === 100) {
-      return this.petStatusChecked = this.pet.petStatus
-        .filter((pet, index: 0) => this.pet.petStatus[0].id !== null);
-    }
-    if (this.pet.petStatus.length > 0 && this.checkedPetStatus[0] === 200) {
-      return this.petStatusChecked = this.pet.petStatus
-        .filter((pet, index: 1) => this.pet.petStatus[1].id !== null);
-    } else {
-      return this.petStatusChecked = this.pet.petStatus
-        .filter((pet, index: 2) => this.pet.petStatus[2].id !== null);
-    }
+    Object.keys(this.checkedPetStatus).forEach(key => {
+      if (this.checkedPetStatus[key] === this.pet.petStatus[0].id) {
+        this.petStatusChecked.push(this.pet);
+        console.log(this.petStatusChecked);
+      }
+    });
   }
-  //  ngOnChanges(): void {
-  //    if (this.groupFilters) {
-  //      this.filterPetList(this.groupFilters, this.pets);
-  //    }
-  //  }
-  //  filterPetList(filters: any, pets: any): void {
-  //    this.filteredPets = this.pets;
-  //  }
 }

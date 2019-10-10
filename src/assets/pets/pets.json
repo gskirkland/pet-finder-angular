@@ -7,21 +7,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Female",
@@ -36,22 +24,10 @@
     "location": "Tellico Plains, TN 37385",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
         "id": 200,
-        "name": "foundStrayCheck",
+        "name": "Found",
         "value": "foundStrayCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Female",
@@ -66,20 +42,8 @@
     "location": "Chattanooga, TN",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
         "id": 300,
-        "name": "reunitedCheck",
+        "name": "Reunited",
         "value": "reunitedCheck",
         "checked": true
       }
@@ -97,21 +61,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -126,22 +78,10 @@
     "location": "Nashville, TN",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
         "id": 200,
-        "name": "foundStrayCheck",
+        "name": "Found",
         "value": "foundStrayCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -156,20 +96,8 @@
     "location": "Cleveland, TN 37312",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
         "id": 300,
-        "name": "reunitedCheck",
+        "name": "Reunited",
         "value": "reunitedCheck",
         "checked": true
       }
@@ -187,21 +115,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -217,21 +133,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -246,22 +150,10 @@
     "location": "Cleveland, TN 37312",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
         "id": 200,
-        "name": "foundStrayCheck",
+        "name": "Found",
         "value": "foundStrayCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -277,21 +169,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -306,20 +186,8 @@
     "location": "Cleveland, TN 37312",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
         "id": 300,
-        "name": "reunitedCheck",
+        "name": "Reunited",
         "value": "reunitedCheck",
         "checked": true
       }
@@ -336,22 +204,10 @@
     "location": "Cleveland, TN 37312",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
         "id": 200,
-        "name": "foundStrayCheck",
+        "name": "Found",
         "value": "foundStrayCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -366,20 +222,8 @@
     "location": "Cleveland, TN 37312",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
         "id": 300,
-        "name": "reunitedCheck",
+        "name": "Reunited",
         "value": "reunitedCheck",
         "checked": true
       }
@@ -397,21 +241,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Female",
@@ -426,20 +258,8 @@
     "location": "Cleveland, TN 37312",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
         "id": 300,
-        "name": "reunitedCheck",
+        "name": "Reunited",
         "value": "reunitedCheck",
         "checked": true
       }
@@ -457,21 +277,9 @@
     "petStatus": [
       {
         "id": 100,
-        "name": "lostCheck",
+        "name": "Lost",
         "value": "lostCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "foundStrayCheck",
-        "value": "foundStrayCheck",
-        "checked": false
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",
@@ -486,22 +294,10 @@
     "location": "Tellico Plains, TN 37385",
     "petStatus": [
       {
-        "id": null,
-        "name": "lostCheck",
-        "value": "lostCheck",
-        "checked": false
-      },
-      {
         "id": 200,
-        "name": "foundStrayCheck",
+        "name": "Found",
         "value": "foundStrayCheck",
         "checked": true
-      },
-      {
-        "id": null,
-        "name": "reunitedCheck",
-        "value": "reunitedCheck",
-        "checked": false
       }
     ],
     "petGender": "Male",

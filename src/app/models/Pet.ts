@@ -6,9 +6,9 @@ export class Pet {
     public location: string,
     public searchDistance: string,
     public petStatus: any = [
-      { id: '', name: 'lostCheck', value: 'lostCheck', checked: true },
-      { id: '', name: 'foundStrayCheck', value: 'foundStrayCheck', checked: false },
-      { id: '', name: 'reunitedCheck', value: 'reunitedCheck', checked: false },
+      { id: '', name: 'Lost', value: 'lostCheck', checked: true },
+      { id: '', name: 'Found', value: 'foundStrayCheck', checked: false },
+      { id: '', name: 'Reunited', value: 'reunitedCheck', checked: false },
     ],
     public petGender: string,
     public addedDate: Date,
