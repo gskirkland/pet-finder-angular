@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PetSearchComponent } from './components/pet-search/pet-search.component';
 import { ReportPetComponent } from './components/report-pet/report-pet.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 const routes: Routes = [
   { path: 'search', component: PetSearchComponent },
   { path: 'report', component: ReportPetComponent },
+  { path: 'about', component: AboutComponent },
   {
     path: '',
     redirectTo: '/search',

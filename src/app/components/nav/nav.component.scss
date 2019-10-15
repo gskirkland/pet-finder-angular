@@ -1,4 +1,4 @@
-@import "./src/styles.scss";
+@import './src/styles.scss';
 nav {
   background: (#22804c);
 
@@ -18,4 +18,8 @@ nav {
   .navbar-toggler {
     border-color: $secondary-color;
   }
+}
+
+.active {
+  border-bottom: solid 2px #ffa500;
 }
