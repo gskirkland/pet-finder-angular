@@ -15,15 +15,7 @@ export class PetService {
   // URL WHERE DATA WILL POST, start this fake API by entering \server directory and entering 'node server' in a terminal
   url = 'http://localhost:3000/getPetSearch';
 
-  // Search Filters
-  // setGroupFilter$ = new Subject<any>();
-  // getGroupFilter = this.setGroupFilter$.asObservable();
-
   constructor(private http: HttpClient) { }
-
-  // fetchPets(): Observable<any> {
-  //   return of(PETS); // ToDo: 9/20/2019 Fix name 'of' and name //'PETS'
-  // }
 
   // HTTP GET ALL PETS RETURNS AN OBSERVABLE COVERTED INTO Pet[] ARRAY. Pet[] RETURNED TO SUBSCRIBED COMPONENT
   getPets(): Observable<Pet[]> {

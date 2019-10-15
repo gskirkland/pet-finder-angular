@@ -148,7 +148,7 @@ export class PetSearchComponent implements OnInit {
     if (this.sortBy.value === 'Most Recent') {
       return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? -1 : ((b.addedDate > a.addedDate) ? 1 : 0));
     } else {
-      // ToDo: 9/30/2019 Sort by distance from user's location. Currently using to sort by DESCENDING addedDate
+      // ToDo: 10/14/2019 Sort by distance from user's location. Currently using to sort by DESCENDING addedDate
       return this.pets.sort((a, b) => (a.addedDate > b.addedDate) ? 1 : ((b.addedDate > a.addedDate) ? -1 : 0));
     }
   }

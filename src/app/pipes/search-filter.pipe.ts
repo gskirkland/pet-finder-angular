@@ -5,7 +5,7 @@ import { FormGroup, FormArray } from '@angular/forms';
 @Pipe({
   name: 'searchFilter'
 })
-// ToDo: 10/02/2019 Show 'No Results Found' message if no results(lost,female,other has no results)
+// ToDo: 10/14/2019 Show 'No Results Found' message if no results(lost,female,other has no results)
 export class SearchFilterPipe implements PipeTransform {
   transform(sortedPets: Pet[], searchForm: FormGroup): Pet[] {
     if (!sortedPets || !searchForm.value) {
