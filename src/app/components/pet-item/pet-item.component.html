@@ -23,27 +23,27 @@
               </strong>
             </div>
           </div>
-          <div class="row" id="status-petid-container">
+          <div class="row" id="status-id-container">
             <!--SHOW LOST BADGE-->
             <div *ngIf="p.petStatus[i].id === 100">
               <h5>
-                <!--SHOW petId-->
+                <!--SHOW id-->
                 <span class="badge badge-pill badge-danger">{{ p.petStatus[i].name }}</span>
-                PET ID: {{ pet.petId }}
+                PET ID: {{ pet.id }}
               </h5>
             </div>
             <!--SHOW FOUND BADGE-->
             <div *ngIf="p.petStatus[i].id === 200">
               <h5>
                 <span class="badge badge-pill" id="found-badge">{{ p.petStatus[i].name }}</span>
-                PET ID: {{ pet.petId }}
+                PET ID: {{ pet.id }}
               </h5>
             </div>
             <!--SHOW REUNITED BADGE-->
             <div *ngIf="p.petStatus[i].id === 300">
               <h5>
                 <span class="badge badge-pill badge-success">{{ p.petStatus[i].name }}</span>
-                PET ID: {{ pet.petId }}
+                PET ID: {{ pet.id }}
               </h5>
             </div>
           </div>
@@ -57,7 +57,8 @@
           </p>
           <!--SEE PET LINK-->
           <p class="card-text text-right text-md-left" id="see-pet-link">
-            <a href="#" [title]="'See more about ' + pet.petName" class="stretched-link">See pet</a>
+            <a [routerLink]="['/pet', pet.id]" [title]="'See more about ' + pet.petName" class="stretched-link">See
+              pet</a>
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -25,6 +25,13 @@ export class PetService {
   getPetSearch(pet: Pet) {
     return this.http.post<any>(this.url, pet)
       .pipe(catchError(this.errorHandler));
+  }
+
+  // GET petId
+  getPet(id: number): Observable<Pet> {
+    this.http.get<Pet[]>(`this.petsUrl: fetched pet id=${id}`);
+    console.log(id);
+    return;
   }
 
   // ERROR HANDLER

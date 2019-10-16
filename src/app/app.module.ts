@@ -13,6 +13,7 @@ import { PetSearchComponent } from './components/pet-search/pet-search.component
 import { PetItemComponent } from './components/pet-item/pet-item.component';
 import { ReportPetComponent } from './components/report-pet/report-pet.component';
 import { AboutComponent } from './components/about/about.component';
+import { PetDetailComponent } from './components/pet-item/pet-detail/pet-detail.component';
 // PIPES
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
@@ -25,6 +26,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     PetItemComponent,
     ReportPetComponent,
     AboutComponent,
+    PetDetailComponent,
     SearchFilterPipe
   ],
   imports: [

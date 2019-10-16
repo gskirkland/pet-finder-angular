@@ -1,5 +1,5 @@
 export interface IPetStatus {
-  id?: number;
+  id: number;
   name: string;
   value: string;
   checked: boolean;
