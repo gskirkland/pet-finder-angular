@@ -3,8 +3,7 @@
 <div *ngFor="let p of petStatusChecked; let i=index;">
   <div class="container rounded-lg mt-1" id="resultsContainer" *ngIf="p.petStatus[i].checked">
     <div class="card">
-      <div class="row">
-        <!--ToDo: 10/21/2019 Fix min&max img sizes-->
+      <div class="row petContainer">
         <!--SHOW PET IMAGE-->
         <div class="image-container col-md-4 p-0 m-0">
           <img class="rounded" src="../../../assets/img/{{pet.imageUrl}}" alt="Pet image" />
